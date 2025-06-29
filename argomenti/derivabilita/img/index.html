@@ -1,0 +1,4430 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://www.geogebra.org/apps/deployggb.js"></script> -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js">
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+  <br>
+  <br>
+
+  <div id="container-apEPWrdtPQ" class="div-container" title="apEPWrdtPQ">
+    <div id="apEPWrdtPQ">
+      <h3 class="yellow"><b>Derivabilità \(\boldsymbol{\Rightarrow}\) continuità</b></h3>
+      <div class="esempi-container">
+        In questo paragrafetto vediamo un risultato che spiega la connessione tra la continutità e la derivabilità.
+        <br>
+        <br>
+        <div class="grayBorder">
+          <div class="grayBackground">
+            Se una funzione è derivabile in \(c\)
+            <br>
+            allora la funzione è continua in \(c\).
+          </div>
+          <b style="font-size: 1rem;">Dimostrazione</b>
+          <br>
+          <br>
+          Il nostro obiettivo è dimostrare che
+          <div class="formula">
+            \[
+            \lim_{x \to c} f(x) = f(c)
+            \]
+          </div>
+          a partire dall'informazione che la funzione è derivabile in \(c\), ovvero che
+          <div class="formula">\[
+            f'(c) = \lim_{h \to 0} \dfrac{f(c + h) - f(c)}{h}
+            \]
+          </div>
+          <br>
+          Partiamo la seguente identità
+          <div class="formula">
+            \[
+            \dfrac{\color{blue}{}f(c + h)\color{black}{} - f(c)}{h} = \dfrac{f(c + h) - f(c)}{h}
+            \]
+          </div>
+          Isoliamo il termine \(\color{blue}{}f(c + h)\) evidenziato in blu. Moltiplichiamo entrambi i membri per \(h\).
+          <div class="formula">\[
+            \begin{align*}
+            &\color{blue}{}f(c + h)\color{black}{} - f(c) = \dfrac{f(c + h) - f(c)}{h} \cdot h
+            \\\\
+            &\color{blue}{}f(c + h)\color{black}{} = \dfrac{f(c + h) - f(c)}{h} \cdot h + f(c)
+            \end{align*}
+            \]
+          </div>
+          Al membro sinistro ed al destro abbiamo due termini uguali che dipendono da \(h\).
+          Se effettuiamo il limite per \(h \to 0\) entrambi convergeranno alla stessa quantità.
+          <div class="formula">\[
+            \lim_{h \to 0} \, f(c + h) = \lim_{h \to 0} \, \left[\dfrac{f(c + h) - f(c)}{h} \cdot h + f(c)\right]
+            \]
+          </div>
+          concentriamoci sul membro destro
+          <br>
+          <div class="formula">\[
+            \lim_{h \to 0} \, \left[\color{red}{}\dfrac{f(c + h) - f(c)}{h}\color{black}{} \cdot
+            \color{blue}{}h\color{black}{} + f(c)\right]
+            \]
+          </div>
+          il termine <span style="color: red">rosso</span> tende alla derivata di \(f\) in \(x = c\), <u>che esiste
+            per ipotesi</u>. Il termine <span style="color: blue;">blu</span> tende a \(0\).
+          Quindi
+          <div class="formula">\[
+            \begin{align*}
+            &\lim_{h \to 0} \, \left[\color{red}{}\dfrac{f(c + h) - f(c)}{h}\color{black}{} \cdot
+            \color{blue}{}h\color{black}{} + f(c)\right] =
+            \\\\
+            &= \color{red}{}f'(c)\color{black}{} \cdot \color{blue}{}0\color{black}{} + f(c) = f(c)
+            \end{align*}
+            \]
+          </div>
+          Inserendo questo risultato nella precedente uguaglianza dei limiti, possiamo riscrivere che
+          <div class="formula">\[
+            \lim_{h \to 0} \, f(c + h) = f(c)
+            \]
+          </div>
+          che a ben pensarci è proprio la definizione di continuità: per \(h \to 0\) l'argomento \(c + h\) della
+          funzione tende a \(c\) e di conseguenza il valore della funzione tende a \(f(x)\).
+          Il teorema è dimostrato.
+          <div style="width: 100%; text-align: right;">
+            \(\square\)
+          </div>
+
+
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`apEPWrdtPQ`)">Copia</button>
+      <button onclick="elimina(`apEPWrdtPQ`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ByKpNGRjLi" class="div-container" title="ByKpNGRjLi">
+    <div id="ByKpNGRjLi">
+      <h3 class="yellow">Punti di non derivabilità</h3>
+      <div class="esempi-container">
+        <b>Flesso a tangente verticale</b>
+        <br>
+        <iframe style="width: 100%" src="https://www.youtube.com/embed/Vrkk5mP2Th0?si=lO9W6IS5iUntYdaP"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <br>
+        <br>
+        <b>Cuspidi</b>
+        <br>
+        <iframe style="width: 100%" src="https://www.youtube.com/embed/Y8ctEN3hAnY?si=uz_rkY_ovFWuxbBP"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <br>
+        <br>
+        <b>Punti angolosi</b>
+        <br>
+        <iframe style="width: 100%" src="https://www.youtube.com/embed/z8B6tnloFdA?si=g47cxUByuvSpiNeN"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ByKpNGRjLi`)">Copia</button>
+      <button onclick="elimina(`ByKpNGRjLi`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ljdgFOrBus" class="div-container" title="ljdgFOrBus">
+    <div class="esercizio" id="ljdgFOrBus">
+      <h3 class="yellow"><b>Criterio di derivabilità</b></h3>
+      <div class="esempi-container">
+        <b>Analisi dell'enunciato ed interpretazione grafica</b>
+        <br>
+        <br>
+        <iframe style="width: 100%" src="https://www.youtube.com/embed/rsZFT85lD0Q?si=KRt-EXCIX9HllEt4"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <br>
+        <br>
+        <iframe style="width: 100%" src="https://www.youtube.com/embed/57Gl2FRh330?si=g17M3PT46k4UAWY0"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <br>
+        <br>
+
+        <b>Applicazione del criterio</b>
+        <br>
+        <br>
+        <iframe style="width: 100%" src="https://www.youtube.com/embed/w-iZvRCcTTk?si=h36EebQks6rBE9Vr"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ljdgFOrBus`)">Copia</button>
+      <button onclick="elimina(`ljdgFOrBus`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ubWJbERvEF" class="div-container" title="ubWJbERvEF">
+    <div class="esercizio" id="ubWJbERvEF">
+      <h3 class="green">Esercizio guida</h3>
+      <br>
+      <div>
+        <iframe style="width: 100%" src="https://www.youtube.com/embed/CvszQsCbphg?si=dQHEeZiiPi3i7NyU"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ubWJbERvEF`)">Copia</button>
+      <button onclick="elimina(`ubWJbERvEF`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-FUDgQDNxZx" class="div-container" title="FUDgQDNxZx">
+    <div class="esercizio" id="FUDgQDNxZx">
+      <h3 class="green">Esercizio </h3>
+      <br>
+      <div class="gray">
+        <b>Svolgimento</b>
+        <br>
+        <iframe style="width: 100%;" src="https://www.youtube.com/embed/WGILEYdp8Vs?si=_ojjVgEWtM6kwUZg"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`FUDgQDNxZx`)">Copia</button>
+      <button onclick="elimina(`FUDgQDNxZx`)">Elimina</button>\(\color{red}{!}\)
+    </div>
+  </div>
+
+  <div id="container-ImwpQqkLdl" class="div-container" title="ImwpQqkLdl">
+    <div class="esercizio" id="ImwpQqkLdl">
+
+      <h3 class="green">Esercizio</h3>
+      <div>
+        Studiare la derivabilità della funzione
+        \[
+        f(x) = \left|ln \sqrt{x} \right|
+        \]
+      </div>
+
+      <br>
+
+      <button id="hintImwpQqkLdl-button" onclick="showHint(`ImwpQqkLdl`)">Svolgimento</button>
+      <div id="hintImwpQqkLdl" class="hint grayBorder" style="display: none;">
+        \[
+        f(x) = \left|ln\sqrt{x}\right|
+        \]
+        <u><b>Dominio</b></u>
+        <br>
+        Nella espressione analitica di \(f\) sono presenti un logaritmo ed una radice. Imponiamo le
+        seguenti condizioni
+        \[
+        \begin{cases}
+        \sqrt{x} \gt 0 \qquad &(condizione\,\,logaritmo)
+        \\\\
+        x \geq 0 &(condizione\,\,radice)
+        \end{cases}
+        \]
+        La radice di \(x\) è sempre positiva, eccetto se \(x = 0\), perciò queste condizioni sono riassumibili
+        nell'unica condizione
+        \(x \gt 0\). Il dominio della funzione è
+        \[
+        D = (0\,,\,\,+\infty)
+        \]
+        <u><b>Continuità</b></u>
+        <br>
+        La funzione \(f\) è una funzione continua in \(D\), perché composizione di tre funzioni continue su \(D\) (il
+        modulo,
+        logaritmo e la radice).
+
+        <br>
+        <br>
+
+        <u><b>Derivabilità</b></u>
+        <br>
+        Calcoliamo la derivata di \(f\)
+        \[
+        f(x) = \left|ln\sqrt{x}\right|
+        \]
+        <div class="slide-container ImwpQqkLdl grayBorder">
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \)
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\color{blue}{}\Big|\color{red}{}ln\sqrt{x}\color{black}{}\color{blue}{}\Big|\color{black}{}' = \)
+            <br>
+            <br>
+            <span class="gray">Deriviamo la funzione <span style="color: blue">modulo</span> considerando il termine in
+              <span style="color: red">rosso</span> come un'unica variabile.</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' =
+            \dfrac{\left|\color{red}{}ln\sqrt{x}\color{black}{}\right|}{\color{red}{}ln\sqrt{x}\color{black}{}}
+            \,\cdot\,\)
+            <br>
+            <br>
+            <span class="gray">Deriviamo la funzione <span style="color: blue">modulo</span> considerando il termine in
+              <span style="color: red">rosso</span> come un'unica variabile.</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|\color{blue}{}ln\color{red}{}\sqrt{x}\color{black}{}\Big|' =
+            \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\,\)
+            <br>
+            <br>
+            <span class="gray">Deriviamo la funzione <span style="color: blue">logaritmo</span> considerando il termine
+              in <span style="color: red">rosso</span> come un'unica variabile.</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\,
+            \dfrac{1}{\color{red}{}\sqrt{x}} \,\cdot\,\)
+            <br>
+            <br>
+            <span class="gray">Deriviamo la funzione <span style="color: blue">logaritmo</span> considerando il termine
+              in <span style="color: red">rosso</span> come un'unica variabile.</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\color{blue}{}\sqrt{\color{red}{}x}\color{black}{}\Big|' =
+            \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\, \dfrac{1}{\sqrt{x}} \,\cdot\,\)
+            <br>
+            <br>
+            <span class="gray">Deriviamo la funzione <span style="color: blue">radice</span>.</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\, \dfrac{1}{\sqrt{x}}
+            \,\cdot\,\dfrac{1}{2\sqrt{x}}\)
+            <br>
+            <br>
+            <span class="gray">Deriviamo la funzione <span style="color: blue">radice</span>.</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\, \dfrac{1}{\sqrt{x}}
+            \,\cdot\,\dfrac{1}{2\sqrt{x}}\)
+            <br>
+            <br>
+            <span class="gray">Moltiplichiamo il secondo ed il terzo fattore.</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \dfrac{1}{2\sqrt{x}^2}\)
+            <br>
+            <br>
+            <span class="gray">Moltiplichiamo il secondo ed il terzo fattore.</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \dfrac{1}{2\sqrt{x}^2}\)
+            <br>
+            <br>
+            <span class="gray">Semplifichiamo radice e quadrato lasiando traccia del modulo</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \dfrac{1}{2\left|x\right|}\)
+            <br>
+            <br>
+            <span class="gray">Semplifichiamo radice e quadrato lasiando traccia del modulo</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{2\left|x\right| \, ln\sqrt{x}}\)
+            <br>
+            <br>
+            <span class="gray">Moltiplichiamo le due frazioni</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{2\left|x\right| \, ln\sqrt{x}}\)
+            <br>
+            <br>
+            <span class="gray">Per il dominio, stiamo considerando valori di \(x\) maggiori di \(0\), quindi \(|x| =
+              x\)</span>
+          </div>
+          <div class="slideImwpQqkLdl">
+            \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{2x \, ln\sqrt{x}}\)
+            <br>
+            <br>
+            <span class="gray">Per il dominio, stiamo considerando valori di \(x\) maggiori di \(0\), quindi \(|x| =
+              x\)</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
+          <button id="previousSlide-buttonImwpQqkLdl" onclick="previousSlide(`ImwpQqkLdl`)">Inietro</button>
+          <button id="nextSlide-buttonImwpQqkLdl" onclick="nextSlide(`ImwpQqkLdl`)">Avanti</button>
+        </div>
+
+        <br>
+
+        Abbiamo così ottenuto
+        \[
+        f'(x) = \dfrac{\left|ln\sqrt{x}\right|}{2x \, ln\sqrt{x}}
+        \]
+        Individuiamo il dominio della derivata \(f'\).
+        <br>
+        Le condizioni per cui essa è definita sono le stesse della funzione \(f\), con l'aggiunta della seguente
+        \[
+        2x \, ln\sqrt{x} \neq 0
+        \]
+        Perché ciò sia vero, sia il primo che il secondo fattore (evidenziati attraverso le parentesi graffe) devono
+        essere diversi da \(0\):
+        \[
+        \underbrace{2x} \, \underbrace{ln\sqrt{x}} \neq 0
+        \]
+        \[
+        \begin{align*}
+        2x \neq 0 \qquad &e \qquad ln\sqrt{x} \neq 0
+        \\\\
+        x \neq 0 \qquad &e \qquad ln\sqrt{x} \neq ln(1)
+        \\\\
+        x \neq 0 \qquad &e \qquad \sqrt{x} \neq 1
+        \\\\
+        x \neq 0 \qquad &e \qquad x \neq 1
+        \end{align*}
+        \]
+        Siccome \(0 \notin D\), l'unico punto che ci interessa è \(x = 1\). Vediamo la funzione è derivabile in esso.
+        Siamo nelle ipotesi del criterio di derivabilità, quindi
+        \[
+        \begin{align*}
+        f'_{-}(1) &=\lim_{x \to 1^{-}} f'(x) = \lim_{x \to 1^{-}}\dfrac{\left|ln\sqrt{x}\right|}{2x \, ln\sqrt{x}} =
+        \\\\
+        &= \lim_{x \to 1^{-}}\dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \, \dfrac{1}{2x} =
+        \\\\
+        &= \dfrac{\left|ln\sqrt{1^{^-}}\right|}{ln\sqrt{1^{^-}}} \, \dfrac{1}{2\cdot 1} =
+        \\\\
+        &= \dfrac{\left|ln(1^{^-})\right|}{ln(1^{^-})} \, \dfrac{1}{2} =
+        \\\\
+        &= \dfrac{\left|0^{^-}\right|}{0^{^-}} \, \dfrac{1}{2} =
+        \\\\
+        &= -\dfrac{1}{2}
+        \end{align*}
+        \]
+        Un osservazione sul calcolo precedente: la quantità \(ln\sqrt{1^{^-}}\) è <b>negativa</b>. Per definizione di
+        modulo questo implica che
+        \(\frac{\left|ln\sqrt{1^{^-}}\right|}{ln\sqrt{1^{^-}}} = -1\).
+        <br>
+        Analogamente nel seguente calcolo usiamo il fatto che \(\frac{\left|ln\sqrt{1^{^+}}\right|}{ln\sqrt{1^{^+}}} =
+        +1\).
+        \[
+        \begin{align*}
+        f'_{+}(1) &=\lim_{x \to 1^{+}} f'(x) = \lim_{x \to 1^{+}}\dfrac{\left|ln\sqrt{x}\right|}{2x \, ln\sqrt{x}} =
+        \\\\
+        &= \lim_{x \to 1^{+}}\dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \, \dfrac{1}{2x} =
+        \\\\
+        &= \dfrac{\left|ln\sqrt{1^{^+}}\right|}{ln\sqrt{1^{^+}}} \, \dfrac{1}{2\cdot 1} =
+        \\\\
+        &= \dfrac{\left|ln(1^{^+})\right|}{ln(1^{^+})} \, \dfrac{1}{2} =
+        \\\\
+        &= \dfrac{\left|0^{^+}\right|}{0^{^+}} \, \dfrac{1}{2} =
+        \\\\
+        &= +\dfrac{1}{2}
+        \end{align*}
+        \]
+        Abbiamo così mostrato che la derivata sinistra a destra di \(f\) in \(x = 1\) esisono finite ma sono diverse.
+        La funzion non è derivabile in \(x = 1\), che è un punto angoloso.
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ImwpQqkLdl`)">Copia</button>
+      <button onclick="elimina(`ImwpQqkLdl`)">Elimina</button>\(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-pyFcRDIJuU" class="div-container" title="pyFcRDIJuU">
+    <div class="esercizio" id="pyFcRDIJuU">
+      <h3 class="green">Esercizio</h3>
+      <br>
+      <div>
+        Determinare l'insieme di derivabilità della funzione
+        \[
+        f(x) =
+        \begin{cases}
+        -x^2 -2x &\,\,\,se\,\,x\leq 0
+        \\\\
+        \sqrt{x} &\,\,\,se\,\,x\gt 0
+        \end{cases}
+        \]
+      </div>
+
+      <br>
+
+      <button id="hintpyFcRDIJuU-button" onclick="showHint(`pyFcRDIJuU`)">Svolgimento</button>
+      <div id="hintpyFcRDIJuU" class="hint grayBorder" style="display: none;">
+        <b>Svolgimento</b>
+        \[
+        f(x) =
+        \begin{cases}
+        -x^2 -2x &\,\,\,se\,\,x\leq 0
+        \\\\
+        \sqrt{x} &\,\,\,se\,\,x\gt 0
+        \end{cases}
+        \]
+
+        <u><b>Dominio</b></u>
+        <br>
+        La funzione \(y = -x^2 -2x\), che definisce \(f\) nel tratto \((-\infty\,,\,\,0]\), è definita su tutto
+        \(\mathbb{R}\).
+        Di conseguenza \(f\) è definita su
+        \[
+        \mathbb{R} \cap (-\infty\,,\,\,0] = (-\infty\,,\,\,0]
+        \]
+        La funzione \(y = \sqrt{x}\), che definisce \(f\) nel tratto \((0\,,\,\,+\infty)\), è definita su
+        \([0\,\,,\,\,+\infty)\).
+        Di conseguenza \(f\) è definita su
+        \[
+        [0\,\,,\,\,+\infty) \cap (0\,,\,\,+\infty) = (0\,,\,\,+\infty)
+        \]
+        Concludiamo che il dominio di \(f\) è
+        \[
+        D = (-\infty\,,\,\,0] \cup (0\,,\,\,+\infty) = \mathbb{R}
+        \]
+
+        <u><b>Continuità</b></u>
+        <br>
+        La funzione che definisce \(f\) nel tratto sinistro è un polinomio, quindi è continua
+        in \(\mathbb{R}\), quindi in particolare in \((-\infty\,,\,\,0)\).
+        <br>
+        La funzione che definisce \(f\) nel tratto destro è continua in \([0\,,\,\,+\infty)\), quindi in particolare
+        in \((0\,,\,\,+\infty)\)
+        Rimane da controllare la continuità nel punto \(x = 0\) dove i due tratti si "incollano".
+        <div class="formula">
+          \[
+          \lim_{x \to 0^{-}} f(x) = \lim_{x \to 0^{-}} -x^2 -2x
+          = -0^2 -2\cdot 0 = 0
+          \]
+        </div>
+        <div class="formula">
+          \[
+          \lim_{x \to 0^{+}} f(x) = \lim_{x \to 0^{+}} \sqrt{x} = \sqrt{0} = 0
+          \]
+        </div>
+        Infine si ha \(f(0) = -0^2 -2\cdot 0 = 0\)
+        <br>
+        Segue che \(f\) è continua in \(x = 0\).
+
+        <br>
+        <br>
+        Possiamo concludere che la funzione è continua in tutto \(\mathbb{R}\).
+
+        <br>
+        <br>
+
+        <u><b>Calcolo derivata ed insieme di definizione della derivata</b></u>
+        <br>
+        Deriviamo la legge pertinente a ciascun tratto della derivata, tralasciando il punto \(x = 0\)
+        \[
+        f(x) =
+        \begin{cases}
+        -x^2 -2x &\,\,\,se\,\,x\leq 0
+        \\\\
+        \sqrt{x} &\,\,\,se\,\,x\gt 0
+        \end{cases}
+        \]
+        \[
+        f'(x) =
+        \begin{cases}
+        -2x -2 &\,\,\,se\,\,x\lt 0
+        \\\\
+        \dfrac{1}{2\sqrt{x}} &\,\,\,se\,\,x\gt 0
+        \end{cases}
+        \]
+        Questo calcolo mostra che \(f\) è derivabile in \(\mathbb{R} - {0}\).
+        Controlliamo la derivabilità in \(x = 0\) sfruttando il <a href="19.html">criterio di derivabilità</a>.
+        <div class="formula">
+          \[
+          f_{-}(0) = \lim_{x \to 0^{-}} f'(x) = \lim_{x \to 0^{-}} -x^2 -2 = -2
+          \]
+        </div>
+        <div class="formula">
+          \[
+          f_{+}(0) = \lim_{x \to 0^{+}} f'(x) = \lim_{x \to 0^{+}} \dfrac{1}{2\sqrt{x}} = \dfrac{1}{2\sqrt{0^{^+}}} =
+          \dfrac{1}{0^{^+}} = +\infty
+          \]
+        </div>
+        <br>
+
+        La derivata destra non è finita, ovvero la parte del grafico a destra di \(x = 0\) ha tangente verticale.
+        Siccome derivata destra è finita ed il tratto di grafico a sinistra \(x = 0\) ha una tangente non verticale.
+        Segue che \(f\) non è derivabile in \(x = 0\), che è un punto angoloso.
+        <br>
+        <br>
+        <img src="img/pyFcRDIJuU(1).png" style="border: 0;">
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`pyFcRDIJuU`)">Copia</button>
+      <button onclick="elimina(`pyFcRDIJuU`)">Elimina</button>\(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-vOdHcoJJSe" class="div-container" title="vOdHcoJJSe">
+    <div class="esercizio" id="vOdHcoJJSe">
+      <h3 class="green">Esercizio</h3>
+      <br>
+      <div>
+        Determinare l'insieme di derivabilità della funzione
+        \[
+        f(x) =
+        \begin{cases}
+        -2ax^2 + bx &\,\,\,se\,\,x \leq 1
+        \\\\
+        \dfrac{1}{x^2 + 1} &\,\,\,se\,\,x \gt 1
+        \end{cases}
+        \]
+      </div>
+
+      <br>
+
+      <button id="hintvOdHcoJJSe-button" onclick="showHint(`vOdHcoJJSe`)">Svolgimento</button>
+      <div id="hintvOdHcoJJSe" class="hint grayBorder" style="display: none;">
+        <b>Svolgimento</b>
+        \[
+        f(x) =
+        \begin{cases}
+        -2ax^2 + bx &\,\,\,se\,\,x \leq 1
+        \\\\
+        \dfrac{1}{x^2 + 1} &\,\,\,se\,\,x \gt 1
+        \end{cases}
+        \]
+
+        <u><b>Dominio</b></u>
+        <br>
+        La fuzione \(y = -2ax^2 + bx\) è un polinomio, quindi è definita su tutto \(\mathbb{R}\).
+        Di conseguenza \(f\) è definita su tutto il tratto sinistro \((-\infty\,,\,\,1]\)
+        <br>
+        La fuzione \(y = \frac{1}{x^2 + 1}\) quindi è definita su tutto \(\mathbb{R}\), perché
+        \[
+        x^2 + 1 \neq 0 \qquad \forall x \in \mathbb{R}
+        \]
+        Di conseguenza \(f\) è definita su tutto il tratto destro \([1\,,\,\,+\infty)\).
+        Concludiamo che il dominio di \(f\) è \(D = \mathbb{R}\)
+
+        <br>
+        <br>
+
+        <u><b>Continuità</b></u>
+        <br>
+        Comunque scegliamo i parametri \(a\) e \(b\), la funzione è continua in \((-\infty\,,\,\,1) \cup
+        (1\,,\,\,+\infty)\) poichè la funzione che definisce \(f\) sul
+        tratto sinistro è un polinomio e quella che la definisce sul tratto destro è il rapporto tra una costante ed un
+        polinomio.
+        <br>
+        <br>
+        Affinché \(f\) sia continutà in \(x = 0\) deve essere vero che
+        \[
+        \lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)
+        \]
+        ovvero
+        \[
+        \begin{align*}
+        \lim_{x \to 1^{-}} -2ax^2 + bx &= \lim_{x \to 1^{+}} \dfrac{1}{x^2 + 1}
+        \\\\
+        -2a \cdot 1^2 + b\cdot1 &= \dfrac{1}{1^2 + 1}
+        \\\\
+        -2a + b &= \dfrac{1}{2}
+        \\\\
+        \color{red}{}-4a + 2b &\color{red}{}= 1
+
+        \end{align*}
+
+        \]
+
+        <u><b>Derivabilità</b></u>
+        <br>
+        Calcoliamo la derivata della funzione in tutti nel tratto sinistro e destro, escludendo il punto \(x = 1\).
+        <span class="gray">(ometto i calcoli intermedi)</span>
+
+        \[
+        f(x) =
+        \begin{cases}
+        -2ax^2 + bx &\,\,\,se\,\,x \leq 1
+        \\\\
+        \dfrac{1}{x^2 + 1} &\,\,\,se\,\,x \gt 1
+        \end{cases}
+        \]
+        <br>
+        \[
+        f'(x) =
+        \begin{cases}
+        -4ax + b &\,\,\,se\,\,x \lt 1
+        \\\\
+        \dfrac{- 2x}{(x^2 + 1)^2} &\,\,\,se\,\,x \gt 1
+        \end{cases}
+        \]
+        La funzione è derivabile in \(x = 1\) se vale la derivata sinistra e destra coincidono.
+        \[
+        f'_{-}(x) = f'_{+}(x)
+        \]
+        Siccome siamo nelle ipotesi del criterio di derivabilità, questa condizione equivale a dire
+        \[
+        \lim_{x \to 1^{-}}f'(x) = \lim_{x \to 1^{+}}f'(x)
+        \]
+        ovvero
+        \[
+        \begin{align*}
+        \lim_{x \to 1^{-}}(-4ax + b) &= \lim_{x \to 1^{+}}\dfrac{- 2x}{(x^2 + 1)^2}
+        \\\\
+        -4a\cdot 1 + b &= \dfrac{- 2\cdot 1}{(1^2 + 1)^2}
+        \\\\
+        -4a + b &= \dfrac{-1}{2}
+        \\\\
+        \color{red}{}-8a + 2b &\color{red}{}= -1
+
+        \end{align*}
+        \]
+        Mettiamo a sistema le condizioni di continuità e derivabilità evidenziate in rosso:
+        \[
+        \begin{cases}
+        -4a + 2b = 1
+        \\\\
+        -8a + 2b = -1
+        \end{cases}
+        \]
+        Risolviamo questo sistema con un metodo qualsiasi. Scelgo ad esempio il metodo di riduzione, perché
+        entrambe le equazioni presentano il termine \(2b\). Sottrendo membro a membro le equazioni otteniamo
+        \[
+        4a = 2 \,\,\,\Rightarrow\,\,\, a = \dfrac{1}{2}
+        \]
+        Prendiamo una qualsiasi delle equaizioni, la prima ad esempio, e sostituiamo ad \(a\) il valore appena trovato:
+        \[
+        \begin{align*}
+        -4a + 2b &= 1
+        \\\\
+        -4\cdot\dfrac{1}{2} + 2b &= 1
+        \\\\
+        -2 +2b &= 1
+        \\\\
+        b &= \dfrac{3}{2}
+        \end{align*}
+
+        \]
+        Concludiamo che la funzione \(f\) è derivabile e continua se \(a = \dfrac{1}{2}\) e \(b = \dfrac{3}{2}\)
+      </div>
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`vOdHcoJJSe`)">Copia</button>
+      <button onclick="elimina(`vOdHcoJJSe`)">Elimina</button>\(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-zvTiDYAeSi" class="div-container" title="zvTiDYAeSi">
+    <div class="esercizio" id="zvTiDYAeSi">
+      <h3 class="yellow">Il teorema di Rolle</h3>
+      <div class="esempi-container">
+        <b>Enunciato del teorema</b>
+        <div class="grayBorder">
+          Sia \(y = f(x)\) una funzione definita su un intervallo \([a\,,\,b]\)
+          <br>
+          <br>
+          <ol style="list-style: none">
+            <li>
+              \(\boldsymbol{1})\,\,\) continua su un intervallo \([a\,,\,\,b]\).
+            </li>
+            <br>
+            <li>
+              \(\boldsymbol{2})\,\,\) derivabile in \((a\,,\,\,b)\)
+            </li>
+            <br>
+            <li>
+              \(\boldsymbol{3})\,\,\) \(f(a) = f(b)\)
+            </li>
+          </ol>
+          <br>
+          Allora \(\exists c \in (a\,,\,b)\) tale che \(f'(c) = 0\)
+        </div>
+        <br>
+        <br>
+        Interpretiamo cosa afferma il teorema
+        <br>
+        <br>
+        <iframe style="width: 100%;" src="https://www.youtube.com/embed/we8kKxKWq3o?si=a7zDBvQla3WC4cgv"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <!-- <br>
+        <br>
+        Di seguito viene fornita una dimostrazione del teorema.
+        <br>
+        <br>
+        <span style="font-size: 1rem;"><u><b>Dimostrazione</b></u></span>
+        <div class="grayBorder">
+            Per ipotesi la funzione  è continua sull'intervallo \([a\,,\,b]\). Segue per il teorema 
+            di Weierstrass che la funzione ammette (almeno) un minimo \(m\) ed un massimo \(M\), assunti
+            in corrispondenza dei valori \(x_{_{m}}, x_{_{M}} \in [a\,,\,b]\). 
+            <br>
+            Per ogni valore \(x \in [a\,,\,\,b]\) si ha 
+            \[
+                \underset{= m}{\underbrace{f(x_{_m})}} \leq f(x) \leq \underset{= M}{\underbrace{f(x_{_M})}} \quad (*)
+            \]
+            Distinguiamo tutte le situazioni possibili in due casi. 
+
+            <br>
+            <br>
+
+            <b>Primo caso</b>
+            <br>
+            Consideriamo il caso in cui il minimo \(m\) ed il massimo \(M\) della funzione coincidano, ovvero \(m = M\).
+            Questo caso si può verificare solo se la funzione è costante, infatti la diseguaglianza \((*)\) diventa l'uguaglianza            
+            \[
+                m = f(x) = M \qquad \forall x \in [a\,,\,b]
+            \]            
+            La funzione ha derivata uguale a \(0\) in tutto \((a\,,\,b)\) in quanto costante.
+            <br>
+            <br>
+            <img src="" alt="">
+            <br>
+            <br>
+
+            <b>Secondo caso</b>
+            <br>
+            Supponiamo che il minimo \(m\) sia strettamente miniore del massimo \(M\), ovvero \(m \lt M\).
+            Questo implica che la funzione non è costante ed almeno uno dei due estremi vengono assunti internamente all'intervallo.
+            Supponiamo che il minimo \(m\) venga assunto internamente all'intervallo, ovvero \(x_{_m} \in (a\,,\,b)\).
+
+            <br>
+            <br>
+            <img src="" alt="">
+            <br>
+
+            Discostandoci di un incremento \(h\) rispetto al valore \(x_{_m}\) si ha che
+            \[
+                f(x_{_m} + h) \geq f(x_{_m})                 
+            \]
+            \[
+                \Downarrow
+            \]
+            \[
+                f(x_{_m} + h)  - f(x_{_m}) \geq 0
+            \]
+            Consideriamo i rapporti incrementali da sinistra e da destra
+            \[
+                \dfrac{f(x_{_m} + h)  - f(x_{_m})}{h} \geq 0  \,\,\,\,se\,\,h \gt 0
+            \]
+            \[
+                \dfrac{f(x_{_m} + h)  - f(x_{_m})}{h} \leq 0  \,\,\,\,se\,\,h \lt 0
+            \]
+            passando al limiti per \(h\)
+
+
+
+        </div> -->
+
+        <br>
+        <br>
+
+        Per la dimostrazione del teorema fate rifermento al libro di testo.
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`zvTiDYAeSi`)">Copia</button>
+      <button onclick="elimina(`zvTiDYAeSi`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-VihyKSMhZP" class="div-container" title="VihyKSMhZP">
+    <div class="esercizio" id="VihyKSMhZP">
+      <h3 class="green">Esercizio guida</h3>
+      <br>
+      <div>
+        Verificare che la fuzione
+        \[
+        f(x) = ln(-x^2 + 9)
+        \]
+        soddisfa le ipotesi del teorema di Rolle nell'intervallo \([-2\,,\,\,2]\).
+        <br>
+        Successivamente individuare per quali valori vale la tesi del teorema.
+      </div>
+
+      <br>
+
+      <button id="hintVihyKSMhZP-button" onclick="showHint(`VihyKSMhZP`)">Svolgimento</button>
+      <div id="hintVihyKSMhZP" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <div class="grayBorder">
+          <iframe style="width: 100%;" src="https://www.youtube.com/embed/JDWa-vtDFYY?si=OH-S9r33RLWi15ZS"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`VihyKSMhZP`)">Copia</button>
+      <button onclick="elimina(`VihyKSMhZP`)">Elimina</button>\(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-nwYCLXuSFl" class="div-container" title="nwYCLXuSFl">
+    <div class="esercizio" id="nwYCLXuSFl">
+      <h3 class="green">Esercizio</h3>
+      <div>
+        Verificare che la funzione
+        \[
+        f(x) = x^2 +2x +3
+        \]
+        soddisfa le ipotesi del teorema di Rolle in \([-3\,,\,1]\).
+        <br>
+        Successivamente individuare per quali valori vale la tesi del teorema.
+      </div>
+      <button id="hintnwYCLXuSFl-button" onclick="showHint(`nwYCLXuSFl`)">Svolgimento</button>
+      <div id="hintnwYCLXuSFl" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <div class="grayBorder">
+          Mostriamo che la funzione
+          \[
+          f(x) = x^2 +2x +3
+          \]
+          soddisfa le ipotesi del teorema di Rolle in \([-3\,,\,1]\).
+          <br>
+          <br>
+          <u><b>Dominio, continuità e derivabilità</b></u>
+          <br>
+          La funzione è polinomiale, quindi il suo dominio è \(\mathbb{R}\) ed è ivi continua e derivabile.
+          Da ciò segue che \(f\) è continua e derivabile in \([-3\,,\,1]\) (ipotesi \(\boldsymbol{1)}\) e
+          \(\boldsymbol{2)}\) del teorema).
+          <br>
+          <br>
+          <u><b>Valori negli estremi dell'intervallo</b></u>
+          <br>
+          Si ha che
+          \[
+          f(-3) = (-3)^2 +2\cdot(-3) +3 = 9 -6 +3 = 6
+          \]
+          \[
+          f(1) = 1^2 +2\cdot 1 +3 = 1 +2 +3 = 6
+          \]
+          quindi \(f(-3) = f(1)\), ovvero vale l'ipotesi \(\boldsymbol{3)}\) del teorema.
+          <br>
+          <br>
+          Segue la tesi: esiste (almeno) un valore \(c \in (-3\,,\,1)\) tale che \(f'(c) = 0\).
+          <br>
+          <br>
+          Svolgiamo ora il secondo punto dell'esercizio: individuiamo quale sia il punto (o i punti)
+          di cui l'esistenza è garantita dal teorema.
+          <br>
+          La derivata di \(f\) è
+          \[
+          f'(x) = 2x +2
+          \]
+          Risolviamo l'equazione
+          \[
+          \begin{align*}
+          f'(x) &= 0
+          \\\\
+          2x +2 &= 0
+          \\\\
+          2x &= -2
+          \\\\
+          x &= -1
+          \end{align*}
+          \]
+          Si ha quindi che il valore \(c = -1 \in (-3\,,\,\,1)\).
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`nwYCLXuSFl`)">Copia</button>
+      <button onclick="elimina(`nwYCLXuSFl`)">Elimina</button>\(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-NCrUlZtSCS" class="div-container" title="NCrUlZtSCS">
+    <div class="esercizio" id="NCrUlZtSCS">
+      <h3 class="green">Esercizio</h3>
+      <div>
+        Determinare l'insieme di derivabilità della funzione
+        \[
+        f(x) = \dfrac{\left|x^2 -4\right|}{x -2} + 2x^2
+        \]
+      </div>
+
+      <br>
+
+      <button id="hintNCrUlZtSCS-button" onclick="showHint(`NCrUlZtSCS`)">Svolgimento</button>
+      <div id="hintNCrUlZtSCS" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <div class="grayBorder">
+          \[
+          f(x) = \dfrac{\left|x^2 -4\right|}{x -2} + 2x^2
+          \]
+          <u><b>Dominio</b></u>
+          <br>
+          L'espressione analitica di \(f\) presenta una divisione, quindi imponiamo la condizione
+          \[
+          x -2 \neq 0 \quad \Rightarrow \quad x \neq 2
+          \]
+          Il dominio di \(f\) è
+          \[
+          D = (-\infty\,,\,\,2) \cup (2\,,\,\,+\infty)
+          \]
+
+          <u><b>Continuità</b></u>
+          <br>
+          La funzione \(f\) è sommando, dividendo e componendo funzioni continue, dunque risulta a sua volta continua
+          nel dominio \(D\).
+
+          <br>
+          <br>
+
+          <u><b>Derivata</b></u>
+          <br>
+          Calcoliamo la derivata di \(f\).
+          <br>
+          <br>
+          <div class="slide-container NCrUlZtSCS grayBorder">
+            <div class="slideNCrUlZtSCS">
+              \(\left(\dfrac{\left|x^2 -4\right|}{x -2} + 2x^2\right)'\) =
+              <br>
+              <br>
+              <span class="gray">
+                Applichiamo la linerità della derivata
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\left(\dfrac{\left|x^2 -4\right|}{x -2}\right)' + \left(2x^2\right)'\) =
+              <br>
+              <br>
+              <span class="gray">
+                Applichiamo la linerità della derivata
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\color{red}{}\underbrace{\color{black}{}\left(\dfrac{\left|x^2 -4\right|}{x -2}\right)'}
+              \color{black}{}+ \color{blue}{}\underbrace{\color{black}{}\left(2x^2\right)'} \color{black}{} = \)
+              <br>
+              <br>
+              <span class="gray">
+                Al il <span style="color: red">primo addendo</span> applichiamo la regola di derivazione del rapporto
+                tra funzioni. Il <span style="color: blue">secondo addendo</span>
+                lo deriviamo come al solito.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\color{red}{}\underbrace{\color{black}{}\dfrac{\left|x^2 -4\right|' (x-2) - \left|x^2 -4\right| \cdot
+              1}{(x -2)^2}}\color{black}{} + \color{blue}{}\underbrace{\color{black}{}4x}\color{black}{} =\)
+              <br>
+              <br>
+              <span class="gray">
+                Al il <span style="color: red">primo addendo</span> applichiamo la regola di derivazione del rapporto
+                tra funzioni. Il <span style="color: blue">secondo addendo</span>
+                lo deriviamo come al solito.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\color{red}{}\left|x^2 -4\right|'\color{black}{} (x-2) - \left|x^2 -4\right|}{(x -2)^2} + 4x
+              =\)
+              <br>
+              <br>
+              <span class="gray">
+                Il termine in <span style="color: red;">rosso</span> è una funzione composta.
+                Si ha
+                \[
+                \begin{align*}
+                \color{red}{}\left|x^2 -4\right|' \color{gray}{}
+                &= \dfrac{\left|x^2 -4\right|}{x^2 -4} \cdot (x^2 - 4)' =
+                \\\\
+                &= \color{red}{}\dfrac{\left|x^2 -4\right|}{x^2 -4} \cdot 2x
+                \end{align*}
+                \]
+
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\color{red}{}\dfrac{\left|x^2 -4\right|}{x^2 -4} \cdot 2x \color{black}{} \,\cdot (x-2) -
+              \left|x^2 -4\right|}{(x -2)^2} + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Il termine in <span style="color: red;">rosso</span> è una funzione composta.
+                Si ha
+                \[
+                \begin{align*}
+                \color{red}{}\left|x^2 -4\right|' \color{gray}{}
+                &= \dfrac{\left|x^2 -4\right|}{x^2 -4} \cdot (x^2 - 4)' =
+                \\\\
+                &= \color{red}{}\dfrac{\left|x^2 -4\right|}{x^2 -4} \cdot 2x
+                \end{align*}
+                \]
+
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\dfrac{\color{blue}{}\left|x^2 -4\right|\color{black}{}}{x^2 -4} \cdot 2x \,\cdot (x-2) -
+              \color{blue}{}\left|x^2 -4\right|\color{black}{}}{(x -2)^2} + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Raccogliamo a fattor comune il termine in <span style="color: blue">blu</span>.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\color{blue}{}\left|x^2 -4\right|\color{black}{} \left(\dfrac{2x \,\cdot (x-2)}{x^2 -4} -
+              1\right)}{(x -2)^2} + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Raccogliamo a fattor comune il termine in <span style="color: blue">blu</span>.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right| \left(\dfrac{2x \,\cdot (x-2)}{x^2 -4} - 1\right)}{(x -2)^2} + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Scomponiamo il denominatore \(x^2 -4 = (x - 2)(x + 2)\) e semplifichiamo
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right| \left(\dfrac{2x \,\cdot (x-2)}{(x - 2)(x + 2)} - 1\right)}{(x -2)^2}
+              \color{black}{}+ 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Scomponiamo il denominatore \(x^2 -4 = (x - 2)(x + 2)\) e semplifichiamo
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right| \left(\dfrac{2x \,\cdot \cancel{(x-2)}}{\cancel{(x - 2)}(x + 2)} -
+              1\right)}{(x -2)^2} \color{black}{}+ 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Scomponiamo il denominatore \(x^2 -4 = (x - 2)(x + 2)\) e semplifichiamo
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right| \left(\dfrac{2x}{x + 2} - 1\right)}{(x -2)^2} \color{black}{}+ 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Scomponiamo il denominatore \(x^2 -4 = (x - 2)(x + 2)\) e semplifichiamo
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\color{red}{}\dfrac{\color{black}{}\left|x^2 -4\right| \left(\dfrac{2x}{x + 2} - 1\right)}{(x -2)^2}
+              \color{black}{}+ 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Riscriviamo la frazione in <span style="color: red">rosso</span> in modo più pratico.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\color{red}{}\dfrac{\color{black}{}\left|x^2 -4\right|}{(x -2)^2} \color{black}{} \left(\dfrac{2x}{x +
+              2} - 1\right) + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Riscriviamo la frazione in <span style="color: red">rosso</span> in modo più pratico.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{(x -2)^2} \color{black}{} \left(\dfrac{2x}{x + 2} - 1\right) + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Svolgiamo i calcoli in parentesi.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{(x -2)^2} \color{black}{} \left(\dfrac{2x - (x +2)}{x + 2}\right) + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Svolgiamo i calcoli in parentesi.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{(x -2)^2} \color{black}{} \left(\dfrac{x - 2}{x + 2}\right) + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Svolgiamo i calcoli in parentesi.
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{(x -2)^2} \color{black}{} \left(\dfrac{x - 2}{x + 2}\right) + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Semplifichiamo
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{(x -2)^{\cancel{2}}} \color{black}{} \left(\dfrac{\cancel{x - 2}}{x +
+              2}\right) + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Semplifichiamo
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{x -2} \color{black}{} \left(\dfrac{1}{x + 2}\right) + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Semplifichiamo
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{x -2} \color{black}{} \left(\dfrac{1}{x + 2}\right) + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Moltiplichiamo le frazioni
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{(x -2)(x + 2)} + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Moltiplichiamo i denominatori
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{x^2 - 4} + 4x =\)
+              <br>
+              <br>
+              <span class="gray">
+                Moltiplichiamo i denominatori
+              </span>
+            </div>
+            <div class="slideNCrUlZtSCS">
+              \(\dfrac{\left|x^2 -4\right|}{x^2 - 4} + 4x\)
+              <br>
+              <br>
+              <span class="gray">
+
+              </span>
+            </div>
+
+          </div>
+          <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
+            <button id="previousSlide-buttonNCrUlZtSCS" onclick="previousSlide(`NCrUlZtSCS`)">Indietro</button>
+            <button id="nextSlide-buttonNCrUlZtSCS" onclick="nextSlide(`NCrUlZtSCS`)">Avanti</button>
+          </div>
+
+          <br>
+          <br>
+
+          La derivata è
+          \[
+          f'(x) = \dfrac{\left|x^2 -4\right|}{x^2 - 4} + 4x
+          \]
+
+          Osserviamo che la funzione \(\frac{\left|x^2 -4\right|}{x^2 - 4}\) ci restituisce il segno di \(x^2 -4\),
+          che è
+          <br>
+          <br>
+          <img src="img/NCrUlZtSCS(1).png" style="width: 60%; border: 0rem;">
+          <br>
+
+          <u><b>Punti di non derivabilità</b></u>
+          <br>
+          Controlliamo se esistono punti del dominio \(D\) di \(f\) dove la definita la derivata \(f'\) non è
+          definita.
+          <br>
+          La derivata è definita se il denominatore della sua espressione analitica
+          \[
+          x^2 - 4 \neq 0 \,\,\Rightarrow\,\, x^2 \neq 4 \,\,\Rightarrow\,\, x \neq \pm 2
+          \]
+          In \(x = 2\) la funzione non è definita, quindi non è neanche derivabile.
+          <br>
+          Prendiamo in considerazione \(x = -2\) che appartiene al dominio di \(f\).
+          Calcoliamo le derivate sinistra e destra in corrispondenza di \(x = -2\), considerando che siamo sotto le
+          ipotesi
+          del criterio di derivabilità.
+
+          \[
+          \begin{align*}
+          f'_{-}(-2)
+          &= \lim_{x \to -2^{-}} f'(x) =
+          \\\\
+          &= \lim_{x \to -2^{-}} \color{blue}{}\underbrace{\color{black}{}\dfrac{\left|x^2 -4\right|}{x^2 -
+          4}}\color{black}{} + 4x =
+          \\\\
+          &= \color{blue}{}\underbrace{\color{black}{}1}\color{black}{} + 4\cdot (-2) = -7
+          \end{align*}
+          \]
+
+          <br>
+
+          \[
+          \begin{align*}
+          f'_{+}(-2)
+          &= \lim_{x \to -2^{+}} f'(x) =
+          \\\\
+          &= \lim_{x \to -2^{+}} \color{blue}{}\underbrace{\color{black}{}\dfrac{\left|x^2 -4\right|}{x^2 -
+          4}}\color{black}{} + 4x =
+          \\\\
+          &= \color{blue}{}\underbrace{\color{black}{}-1}\color{black}{} + 4\cdot (-2) = -9
+          \end{align*}
+          \]
+
+          Concludiamo che \(x = -2\) è un punto angoloso
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`NCrUlZtSCS`)">Copia</button>
+      <button onclick="elimina(`NCrUlZtSCS`)">Elimina</button>\(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-InkgDTFCGv" class="div-container" title="InkgDTFCGv">
+    <div class="esercizio" id="InkgDTFCGv">
+      <h3 class="yellow">Il teorema di Lagrange</h3>
+      <div class="esempi-container">
+        <b>Enunciato del teorema</b>
+        <div class="grayBorder">
+          Sia \(y = f(x)\) una funzione definita su un intervallo \([a\,,\,b]\)
+          <br>
+          <br>
+          <ol style="list-style: none">
+            <li>
+              \(\boldsymbol{1})\,\,\) continua su un intervallo \([a\,,\,\,b]\).
+            </li>
+            <br>
+            <li>
+              \(\boldsymbol{2})\,\,\) derivabile in \((a\,,\,\,b)\)
+            </li>
+          </ol>
+          <br>
+          Allora \(\exists c \in (a\,,\,b)\) tale che
+          \[
+          f'(c) = \dfrac{f(b) - f(a)}{b -a}
+          \]
+        </div>
+        <br>
+        <br>
+        <b>Osservazione</b>
+        <br>
+        Il teorema di Rolle è un caso particolare di quello di Lagrange.
+        <br>
+        Le ipotesi \(\boldsymbol{1)}\) e \(\boldsymbol{2)}\)
+        sono le stesse.
+        Per il teorema di Lagrange sappiamo che \(\exists x \in (a\,,\,b)\) tale che
+        \[
+        f'(c) = \dfrac{f(b) - f(a)}{b -a}
+        \]
+        Aggiungendo l'ipotesi \(\boldsymbol{3)}\) di Rolle, ovvero che \(f(a) = f(b)\), possiamo sviluppare il calcolo
+        \[
+        f'(c) = \dfrac{f(b) - f(a)}{b -a} = \dfrac{0}{b -a} = 0
+        \]
+        ovvero esiste (almeno) un valore \(c\) interno all'intervallo tale che la derivata si annulli: precisamente
+        la tesi del teorema di Rolle.
+        <br>
+        <br>
+        <b>Interpretazione grafica</b>
+        <br>
+        Chiamiamo \(A\) e \(B\) i punti del grafico in corrispondenza degli estremi dell'intervallo \([a\,,\,b]\)
+        <br>
+        <br>
+        <img src="img/InkgDTFCGv(1).png" alt="">
+        <br>
+        Il coefficiente della retta passante per \(A\), \(B\) è
+        \[
+        \dfrac{f(b) -f(a)}{b -a}
+        \]
+        che è il membro destro della proprietà affermata nella tesi.
+        Possiamo quindi riformulare la tesi così:
+        <br>
+        <br>
+        <i>
+          Esiste una retta tangente al grafico parallela alla retta passante per i punti agli estremi
+          del grafico
+        </i>
+
+        <div class="grayBorder">
+          <div class="geogebra-container">
+            <div id="geogebraInkgDTFCGv"></div>
+          </div>
+          <br>
+          <div class="gray" style="font-size: 1rem;">
+            Spostate il punto triangolare sull'asse \(x\) per variare il punto di tangenza.
+            Lagrange ci assicura che esiste un valore \(c\) tale che la retta tangente sia parallela a quella rossa.
+          </div>
+        </div>
+
+        <br>
+        <br>
+
+        <b>Dimostrazione</b>
+        <br>
+        Per la dimostrazione del teorema fate rifermento al libro di testo.
+      </div>
+
+      <script>
+        var ggbApp1 = new GGBApplet({
+            "appName": "classic",
+            "id": "gg1",
+            "showToolBar": false,
+            "showAlgebraInput": false,
+            "showMenuBar": false,
+            "enableShiftDragZoom": false,
+            "scaleContainerClass": "geogebra-container",
+            "filename": "img/InkgDTFCGv(1).ggb"
+          },
+          true
+        );
+
+        window.addEventListener("load", function () {
+          ggbApp1.inject('geogebraInkgDTFCGv');
+        });
+      </script>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`InkgDTFCGv`)">Copia</button>
+      <button onclick="elimina(`InkgDTFCGv`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-HKQPwancpo" class="div-container" title="HKQPwancpo">
+    <div class="esercizio" id="HKQPwancpo">
+      <h3 class="green">Esercizio</h3>
+      <br>
+      <div>
+        Verificare che la funzione
+        \[
+        f(x) = -\dfrac{1}{2}x^2 +5x +2
+        \]
+        soddisfa le ipotesi del teorema di Lagrange nell'intervallo \([-2\,,\,4]\).
+        <br>
+        Stabilire per quali valori è verificata la tesi del teorema.
+      </div>
+
+      <br>
+
+      <button id="hintHKQPwancpo-button" onclick="showHint(`HKQPwancpo`)">Svolgimento</button>
+      <div id="hintHKQPwancpo" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <div class="grayBorder">
+          Mostriamo che la funzione
+          \[
+          f(x) = -\dfrac{1}{2}x^2 +5x +2
+          \]
+          soddisfa le ipotesi del teorema di Lagrange nell'intervallo \([-2\,,\,4]\).
+          Prima di tutti studiamo il suo dominio, continuità e derivabilità.
+          <br>
+          <br>
+          <u><b>Dominio, continuità, derivabilità</b></u>
+          <br>
+          La funzione \(f\) è polinomiale, il suo dominio è \(D = \mathbb{R}\), in esso è ovunque continua e derivabile.
+          La sua derivata è
+          \[
+          f'(x) = -x +5
+          \]
+          <br>
+          <br>
+          <u><b>Verifica delle ipotesi</b></u>
+          <br>
+
+          Le ipotesi \(\boldsymbol{1)}\) e \(\boldsymbol{2)}\) sono soddisfatte. Infatti abbiamo mostrato che la
+          funzione \(f\) è continua e derivabile su \(\mathbb{R}\).
+          In particolare lo sarà su \([-2\,,\,4]\), che è contenuto in \(\mathbb{R}\).
+
+          <br>
+
+          Il teorema di Lagrange ci assicura che vale la proprietà affermata in tesi, ovvero esiste (almeno) un valore
+          \(c \in (-2\,,\,4)\) tale che
+          \[
+          f'(c) = \dfrac{f(4) -f(-2)}{4 - (-2)}
+          \]
+          Per trovare quale sia questo valore risolviamo l'equazione nell'incognita \(c\), che per nostra serenità
+          psicologica
+          ribatteziamo con l'etichetta \(x\), come tutte le incognite del mondo:
+          <div class="formula">
+            \[
+            \begin{align*}
+            &f'(x) = \dfrac{f(4) -f(-2)}{4 - (-2)}
+            \\\\
+            &-x +5 = \dfrac{-\dfrac{1}{2}4^2 +5\cdot4 +2 -\left(-\dfrac{1}{2}(-2)^2 +5\cdot(-2) +2 \right)}{4 + 2}
+            \\\\
+            &-x +5 = \dfrac{-8 +20 +2 -\left(-2 -10 +2\right)}{6}
+            \\\\
+            &-x +5 = \dfrac{24}{6}
+            \\\\
+            &-x +5 = 4
+            \\\\
+            &x = 1
+            \end{align*}
+            \]
+          </div>
+
+          Nell'immagine che segue vediamo l'interpretazione grafica del teorema:
+          in corrispondenza dell'intervallo \((-2\,,\,4)\) esiste una <span style="color: blue">tangente</span> al
+          grafico parallela la <span style="color: red">retta</span> passante per i punti del grafico \(f\)
+          di ascissa \(x = -2\) e \(x = 4\)
+          <br>
+          <br>
+          <img src="img/HKQPwancpo(1).png">
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`HKQPwancpo`)">Copia</button>
+      <button onclick="elimina(`HKQPwancpo`)">Elimina</button> \(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-NJVJtPlpqU" class="div-container" title="NJVJtPlpqU">
+    <div class="esercizio" id="NJVJtPlpqU">
+      <h3 class="green">Esercizio</h3>
+      <br>
+      <div>
+        Mostrare che la funzione
+        \[
+        f(x) = \left|x^2 - 1\right|
+        \]
+        soddisfa le ipotesi del teorema di Lagrange nell'intervallo \([2\,,\,3]\).
+        <br>
+        Successivamente individuare i valori per i quali è soddisfatta la tesi del teorema.
+      </div>
+
+      <br>
+
+      <button id="hintNJVJtPlpqU-button" onclick="showHint(`NJVJtPlpqU`)">Svolgimento</button>
+      <div id="hintNJVJtPlpqU" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <div class="grayBorder">
+          Mostriamo che la funzione
+          \[
+          f(x) = \left|x^2 - 1\right|
+          \]
+          soddisfa le ipotesi del teorema di Lagrange nell'intervallo \([2\,,\,3]\).
+          Prima di tutti studiamo il suo dominio, continuità e derivabilità.
+          <br>
+          <br>
+          <u><b>Dominio, continuità</b></u>
+          <br>
+          La funzione \(f\) è composizione del modulo e di un polinomio, il suo dominio è \(D = \mathbb{R}\), in esso è
+          ovunque continua.
+          <br>
+          <br>
+
+          <u><b>Derivabilità</b></u>
+          <br>
+          Calcoliamo la derivata di \(f\)
+          <br>
+          <br>
+          <div class="slide-container NJVJtPlpqU grayBorder">
+            <div class="slideNJVJtPlpqU">
+              \(\Big|x^2 - 1\Big|' = \)
+              <br>
+              <br>
+              <span class="gray">
+                La funzione è composta. Evidenziamo la funzione più interna.
+              </span>
+            </div>
+            <div class="slideNJVJtPlpqU">
+              \(\Big|\color{red}{}{x^2 - 1}\color{black}{}\Big|' = \)
+              <br>
+              <br>
+              <span class="gray">
+                La funzione è composta. Evidenziamo la funzione più interna.
+              </span>
+            </div>
+            <div class="slideNJVJtPlpqU">
+              \(\Big|\color{red}{}{x^2 - 1}\color{black}{}\Big|' = \)
+              <br>
+              <br>
+              <span class="gray">
+                Procediamo con la regola di derivazione di una funzione composta. Deriviamo la funzione più esterna.
+              </span>
+            </div>
+            <div class="slideNJVJtPlpqU">
+              \(\Big|\color{red}{}{x^2 - 1}\color{black}{}\Big|' = \dfrac{\Big|\color{red}{}{x^2 -
+              1}\color{black}{}\Big|}{\color{red}{}{x^2 - 1}}\)
+              <br>
+              <br>
+              <span class="gray">
+                Procediamo con la regola di derivazione di una funzione composta. Deriviamo la funzione più esterna.
+              </span>
+            </div>
+            <div class="slideNJVJtPlpqU">
+              \(\Big|\color{red}{}{x^2 - 1}\color{black}{}\Big|' = \dfrac{\Big|x^2 - 1\Big|}{x^2 - 1}\)
+              <br>
+              <br>
+              <span class="gray">
+                Moltiplichiamo per la derivata della <span style="color: red;">funzione più interna</span>.
+              </span>
+            </div>
+            <div class="slideNJVJtPlpqU">
+              \(\Big|\color{red}{}{x^2 - 1}\color{black}{}\Big|' = \dfrac{\Big|x^2 - 1\Big|}{x^2 - 1} \cdot (2x)\)
+              <br>
+              <br>
+              <span class="gray">
+                Moltiplichiamo per la derivata della <span style="color: red;">funzione più interna</span>.
+              </span>
+            </div>
+            <div class="slideNJVJtPlpqU">
+              \(\Big|x^2 - 1\Big|' = \dfrac{\Big|x^2 - 1\Big|}{x^2 - 1} \cdot 2x\)
+              <br>
+              <br>
+              <span class="gray">
+
+              </span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
+            <button id="previousSlide-buttonNJVJtPlpqU" onclick="previousSlide(`NJVJtPlpqU`)">Inietro</button>
+            <button id="nextSlide-buttonNJVJtPlpqU" onclick="nextSlide(`NJVJtPlpqU`)">Avanti</button>
+          </div>
+
+          <br>
+          <br>
+          La derivata della funzione è
+          \[
+          f'(x) = \dfrac{\Big|x^2 - 1\Big|}{x^2 - 1} \cdot 2x
+          \]
+          Individuiamo il suo dominio. Nell'espressione analitica di \(f'\) è presente una frazione. Imponiamo la
+          condizione
+          \[
+          x^2 - 1 \neq 0 \,\,\Rightarrow\,\, x^2 \neq 1 \,\,\Rightarrow\,\, x = \pm 1
+          \]
+          L'insieme di derivabilità è
+          \[
+          D' = (-\infty\,,\,\,-1) \cup (-1\,,\,\,1) \cup (1\,,\,\,+\infty)
+          \]
+          Rispetto all'insieme dove la funzione è continua abbiamo "perso" i valori \(x = \pm1\)
+
+          <br>
+          <br>
+
+          <u><b>Verifica ipotesi del teorema in \(\boldsymbol{[2\,,\,3]}\)</b></u>
+          <br>
+          <br>
+          <ul>
+            <li>
+              <!-- <b>Ipotesi</b> \(\boldsymbol{1)}\) 
+                    <br> -->
+              L'intervallo \([2\,,\,3]\) è contenuto in \(\mathbb{R}\), dove la funzione è continua. Segue la continuità
+              di \(f\)
+              in \([2\,,\,3]\). L'ipotesi \(\boldsymbol{1)}\) è soddisfatta.
+            </li>
+            <br>
+            <li>
+              L'intervallo \((2\,,\,3)\) è contenuto in \(D'\), dove la funzione è derivabile. Segue la derivabiltà di
+              \(f\)
+              in \((2\,,\,3)\). L'ipotesi \(\boldsymbol{2)}\) è soddisfatta.
+            </li>
+          </ul>
+          <br>
+          Poiché sono verificate per \(f\) le ipotesi del teorema di Lagrange, segue la tesi, ovvero esiste (almeno) un
+          valore \(c \in (2\,,\,3)\)
+          tale che
+          \[
+          f'(c) = \dfrac{f(3) - f(2)}{3 - 2}
+          \]
+          Per trovare il valore in questione, risolviamo l'equazione scritta sopra nell'incognita \(c\), che
+          rietichettiamo con
+          il nome di \(x\).
+
+          <br>
+
+          Un'osservazione prima di immergerci nei calcoli.
+          <br>
+          La funzione
+          \[
+          \dfrac{\Big|x^2 - 1\Big|}{x^2 - 1}
+          \]
+          ci restituisce
+          come output \(+1\) se il segno del polinomio \(x^2 -1\) è positivo, \(-1\) se è negativo. Con il metodo della
+          parabola vediamo che il segno di \(x^2 - 1\) è
+          <br>
+          <br>
+          <img src="img/NJVJtPlpqU(1).png" style="width: 50%; border: 0;">
+          <br>
+          Dalla tesi del teorema sappiamo che \(x \in (2\,,\,3)\). In corrispondenza di tale intervallo il segno di
+          \(x^2 - 1\) è positivo, quindi \(\frac{\Big|x^2 - 1\Big|}{x^2 - 1} = +1\).
+          \[
+          \begin{align*}
+          &f'(x) = \dfrac{f(3) - f(2)}{3 - 2}
+          \\\\
+          &\dfrac{\Big|x^2 - 1\Big|}{x^2 - 1} \cdot 2x = \dfrac{ \left|3^2 - 1\right| - \left|2^2 - 1\right|}{1}
+          \\\\
+          & +1 \cdot 2x = \left|8\right| - \left|5\right|
+          \\\\
+          &2x = 3
+          \\\\
+          &x = \dfrac{3}{2}
+          \end{align*}
+          \]
+          Il valore che soddisfa la proprietà della tesi è \(x = \dfrac{3}{2}\).
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`NJVJtPlpqU`)">Copia</button>
+      <button onclick="elimina(`NJVJtPlpqU`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-CfWZSnebgs" class="div-container" title="CfWZSnebgs">
+    <div class="esercizio" id="CfWZSnebgs">
+      <h3 class="green">Esercizio</h3>
+      <div>
+        Stabilre per quali valori di \(a\) e \(b\) la funzione
+        \[
+        f(x) =
+        \begin{cases}
+        x^2 +ax -1 \qquad &se\,\,x \lt -1
+        \\\\
+        -4x^2 + x + b \qquad &se\,\,x \geq -1
+        \end{cases}
+        \]
+        soddisfa le ipotesi del teorema di Lagrange nell'intervallo \([-2\,,\,0]\).
+      </div>
+
+      <br>
+      <button id="hintCfWZSnebgs-button" onclick="showHint(`CfWZSnebgs`)">Svolgimento</button>
+      <div id="hintCfWZSnebgs" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <div class="grayBorder">
+          Vogliamo che la funzione
+          \[
+          f(x) =
+          \begin{cases}
+          x^2 +ax -1 \qquad &se\,\,x \lt -1
+          \\\\
+          -4x^2 + x + b \qquad &se\,\,x \geq -1
+          \end{cases}
+          \]
+          soddisfi le ipotesi del teorema di Lagrange nell'intervallo \([-2\,,\,0]\).
+          Osserviamo che, essendo \(f\) definita nei relativi tratti da polinomi, il suo dominio è \(\mathbb{R}\).
+          <br>
+          <br>
+          <u><b>Condizione di continuità</b></u>
+          <br>
+          Poiché la funzione è definita da polinomi nei tratti \((-\infty\,,\,-1)\) \((-1\,,\,+\infty)\), sarà
+          sicuramente
+          continua in tali intervalli.
+          Potrebbe invece non esserlo in \(x = -1\). Detta male, i tratti di grafico potrebbero non "incollarsi" bene.
+          <br>
+          <br>
+          <div class="grayBorder">
+            <div class="geogebra-container">
+              <div id="geogebraCfWZSnebgs(1)"></div>
+              <br>
+            </div>
+            <br>
+            <div class="gray" style="font-size: 0.9rem;">
+              Modificate i parametri \(a\) è \(b\) attraverso gli slider.
+            </div>
+          </div>
+          <br>
+          Imponiamo la continuità in \(x = -1\):
+          \[
+          \begin{align*}
+          &\lim_{x \to -1^{-}} f(x) = \lim_{x \to -1^{+}} f(x)
+          \\\\
+          &\lim_{x \to -1^{-}} \left(x^2 +ax -1\right) = \lim_{x \to -1^{+}} \left(-4x^2 + x + b\right)
+          \\\\
+          &(-1)^2 +a\cdot(-1) -1 = -4(-1)^2 + (-1) + b
+          \\\\
+          &1 -a -1 = -4 -1 + b
+          \\\\
+          &-a -b = -5
+          \\\\
+          &a + b = 5
+          \end{align*}
+          \]
+
+          <u><b>Condizione di derivabilità</b></u>
+          <br>
+          Come sopra, possiamo affermare che la funzione è derivabile nei tratti \((-\infty\,,\,-1)\)
+          \((-1\,,\,+\infty)\)
+          poiché definita da polinomi.
+          La derivata vale
+          \[
+          f(x) =
+          \begin{cases}
+          2x + a \qquad &se\,\,x \lt -1
+          \\\\
+          -8x + 1 \qquad &se\,\,x \gt -1
+          \end{cases}
+          \]
+          <br>
+          Immaginiamo che i tratti si incollino bene, ovvero che valga la condizione \(a + b = 5\). Potrebbe darsi che
+          la maniera in cui si incollino generi delle "spigolosità" nel grafico, ovvero che in \(x = -1\) la funzione
+          non sia derivabile.
+          <br>
+          <br>
+          <div class="geogebra-container">
+            <div id="geogebraCfWZSnebgs(2)"></div>
+          </div>
+          <br>
+
+          Per far sì che la funzione sia "liscia" in corrispondenza di \(x = -1\) imponiamo la derivabilità in tale
+          valore.
+          \[
+          \begin{align*}
+          &\lim_{x \to -1^{-}} f'(x) = \lim_{x \to -1^{+}} f'(x)
+          \\\\
+          &\lim_{x \to -1^{-}} (2x + a) = \lim_{x \to -1^{+}} (-8x + 1)
+          \\\\
+          &2\cdot(-1) + a = -8\cdot(-1) + 1
+          \\\\
+          &-2 + a = 9
+          \\\\
+          &a = 11
+          \end{align*}
+          \]
+
+          <u><b>Sistema</b></u>
+          <br>
+          Mettiamo a sistema entrambe le condizioni di contiuità e derivabilità
+          \[
+          \begin{cases}
+          a + b = 5
+          \\\\
+          a = 11
+          \end{cases}
+
+          \,\,\,\Rightarrow\,\,\,
+
+          \begin{cases}
+          b = 5 - a = -6
+          \\\\
+          a = 11
+          \end{cases}
+          \]
+
+          La funzione \(f\) soddisfa le ipotesi del teorema di Lagrange se \(a = 11\) e \(b = -6\)
+        </div>
+      </div>
+
+      <script>
+        var ggbApp1 = new GGBApplet({
+            "appName": "classic",
+            "id": "gg1",
+            "showToolBar": false,
+            "showAlgebraInput": false,
+            "showMenuBar": false,
+            "enableShiftDragZoom": false,
+            "scaleContainerClass": "geogebra-container",
+            "filename": "img/CfWZSnebgs(1).ggb"
+          },
+          true
+        );
+
+        var ggbApp2 = new GGBApplet({
+            "appName": "classic",
+            "id": "gg2",
+            "showToolBar": false,
+            "showAlgebraInput": false,
+            "showMenuBar": false,
+            "enableShiftDragZoom": false,
+            "scaleContainerClass": "geogebra-container",
+            "filename": "img/CfWZSnebgs(1).ggb"
+          },
+          true
+        );
+
+
+
+        window.addEventListener("load", function () {
+          ggbApp1.inject('geogebraCfWZSnebgs(1)');
+          ggbApp2.inject('geogebraCfWZSnebgs(2)');
+        });
+      </script>
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`CfWZSnebgs`)">Copia</button>
+      <button onclick="elimina(`CfWZSnebgs`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-DKVGBGJgev" class="div-container" title="DKVGBGJgev">
+    <div class="esercizio" id="DKVGBGJgev">
+      <h3 class="green">Esercizio</h3>
+      <div>
+        Individuare massimi, minimi della funzione, distinguendo i punti stazionari da quelli angolosi.
+        \[
+        f(x) =
+        \begin{cases}
+        x^2 + 4x \quad &se\,\,x \lt 0
+        \\\\
+        -3x \quad &se\,\,x \geq 0
+        \end{cases}
+        \]
+      </div>
+
+      <br>
+
+      <button id="hintDKVGBGJgev-button" onclick="showHint(`DKVGBGJgev`)">Svolgimento</button>
+      <div id="hintDKVGBGJgev" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <br>
+        <div class="grayBorder">
+          Individuiamo massimi, minimi della funzione, distinguendo i punti stazionari da quelli angolosi.
+          \[
+          f(x) =
+          \begin{cases}
+          x^2 + 4x \quad &se\,\,x \lt 0
+          \\\\
+          -3x \quad &se\,\,x \geq 0
+          \end{cases}
+          \]
+
+          <u><b>Dominio</b></u>
+          <br>
+          Il dominio di \(f\) è \(D = \mathbb{R}\) perché in entrambi gli intervalli è definita attraverso polinomi.
+
+          <br>
+          <br>
+
+          <u><b>Continuità</b></u>
+          <br>
+          La funzione \(f\) è sicuramente continua in \((-\infty\,,\,\,0) \cup (0\,\,\,\,+\infty)\) poichè ivi definita
+          da
+          polinomi.
+          <br>
+          <br>
+          Controlliamo tramite la definizione se la funzione è continua in \(x = 0\).
+          <br>
+          <br>
+          <div
+            style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; width: 100%;">
+            <div
+              style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; width: 100%;">
+              <div style="width: 40%; margin-left: 0; margin-right: 10%;">
+                <b style="font-size: 1rem;">Limite da sinistra</b>
+                \[
+                \begin{align*}
+                &\lim_{x \to 0^{-}} f(x) =
+                \\\\
+                = &\lim_{x \to 0^{-}} x^2 + 4x =
+                \\\\
+                = &0^2 + 4 \cdot 0 = 0
+                \end{align*}
+                \]
+              </div>
+              <div style="width: 40%; margin-left: 10%;">
+                <b style="font-size: 1rem;">Limite da destra</b>
+                \[
+                \begin{align*}
+                &\lim_{x \to 0^{+}} f(x) =
+                \\\\
+                = &\lim_{x \to 0^{+}} -3x =
+                \\\\
+                = &-3\cdot 0 = 0
+                \end{align*}
+                \]
+              </div>
+            </div>
+            <div style="margin-top: 1rem;">
+              <b style="font-size: 1rem;">Valore in \(\boldsymbol{x = 0}\)</b>
+              <br>
+              \[
+              f(0) = -3\cdot 0 = 0
+              \]
+            </div>
+          </div>
+
+
+
+
+          Poiché
+          \[
+          \lim_{x \to 0^{-}} f(x) = \lim_{x \to 0^{+}} = f(0)
+          \]
+          la funzione è continua in \(x = 0\)
+          <br>
+          <br>
+          Concludiamo che la funzione è continua in tutto \(D = \mathbb{R}\)
+
+          <br>
+          <br>
+
+          <u><b>Derivabilità</b></u>
+          <br>
+          Calcoliamo la derivata di \(f\)
+
+
+          <br>
+          <br>
+          La derivata di \(f\) è
+          \[
+          f'(x) =
+          \begin{cases}
+          2x + 4 \quad &se\,\,x \lt 0
+          \\\\
+          -3 \quad &se\,\,x \gt 0
+          \end{cases}
+          \]
+          La funzione è sicuramente derivabile in \((-\infty\,,\,\,0) \cup (0\,\,\,\,+\infty)\).
+          <br>
+          <br>
+          Sappiamo che la funzione è continua in \(x = 0\). Controlliamo se è anche derivabile in corrispondenza di
+          questo valore. Poiché siamo nelle ipotesi, usiamo il criterio di derivabilità
+
+          <br>
+          <br>
+
+          <div
+            style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; width: 100%;">
+            <div style="width: 40%; margin-left: 0; margin-right: 10%;">
+              <b style="font-size: 1rem;">Limite derivata da sinistra</b>
+              \[
+              \begin{align*}
+              &\lim_{x \to 0^{-}} f'(x) =
+              \\\\
+              = &\lim_{x \to 0^{-}} 2x + 4 =
+              \\\\
+              = & 2 \cdot 0 + 4 = 4
+              \end{align*}
+              \]
+            </div>
+            <div style="width: 40%; margin-left: 10%;">
+              <b style="font-size: 1rem;">Limite derivata da destra</b>
+              \[
+              \begin{align*}
+              &\lim_{x \to 0^{+}} f'(x) =
+              \\\\
+              = &\lim_{x \to 0^{+}} -3 = -3
+              \end{align*}
+              \]
+            </div>
+          </div>
+
+          Poiché si ha
+          \[
+          \lim_{x \to 0^{-}} f'(x) \neq \lim_{x \to 0^{+}} f'(x)
+          \]
+          la funzione non è derivabile in \(x = 0\) ed esso è un punto angoloso.
+
+          <br>
+          <br>
+
+          <u><b>Segno derivata</b></u>
+          <br>
+          Studiamo il segno della derivata
+          \[
+          f'(x) \gt 0
+          \]
+          Chiediamoci per quali valori del tratto sinistro la funzione \(y = 2x + 4\) è positiva, ovvero
+          \[
+          \begin{align*}
+          2x + 4 \gt 0 \quad con\,\, x\in(-\infty\,,\,\,0)
+          \\\\
+          x \gt -2 \quad con\,\, x\in(-\infty\,,\,\,0)
+          \end{align*}
+          \]
+
+
+          <div id="slide-containerDKVGBGJ(1)" class="slide-container DKVGBGJ(1) grayBorder">
+            <div class="slideDKVGBGJ(1)">
+              <img src="img/DKVGBGJgev(1).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Visualizziamo il segno della funzione \(y = 2x + 4\) al variare della \(x\).
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(1)">
+              <img src="img/DKVGBGJgev(1).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Di questo segno ci interessa solo la parte in corrispondenza del <span style="color: blue">tratto
+                  sinistro</span>
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(1)">
+              <img src="img/DKVGBGJgev(2).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Di questo segno ci interessa solo la parte in corrispondenza del <span style="color: blue">tratto
+                  sinistro</span>
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(1)">
+              <img src="img/DKVGBGJgev(2).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Ignoriamo tutto ciò che accade per \(x \gt 0\)
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(1)">
+              <img src="img/DKVGBGJgev(3).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Ignoriamo tutto ciò che accade per \(x \gt 0\)
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(1)">
+              <img src="img/DKVGBGJgev(4).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Ignoriamo tutto ciò che accade per \(x \gt 0\)
+              </span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
+            <button id="previousSlide-buttonDKVGBGJ(1)" onclick="previousSlide(`DKVGBGJ(1)`)">Indietro</button>
+            <button id="nextSlide-buttonDKVGBGJ(1)" onclick="nextSlide(`DKVGBGJ(1)`)">Avanti</button>
+          </div>
+
+          <br>
+          <br>
+
+          Osserviamo che la funzione \(y = -3\) è costantemente negativa.
+
+          <br>
+          <br>
+
+
+          <div id="slide-containerDKVGBGJ(2)" class="slide-container DKVGBGJ(2) grayBorder">
+            <div class="slideDKVGBGJ(2)">
+              <img src="img/DKVGBGJgev(5).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Visualizziamo il segno della funzione \(y = -3\) al variare della \(x\).
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(2)">
+              <img src="img/DKVGBGJgev(5).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Di questo segno ci interessa solo la parte in corrispondenza del <span style="color: blue">tratto
+                  destro</span>
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(2)">
+              <img src="img/DKVGBGJgev(6).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Di questo segno ci interessa solo la parte in corrispondenza del <span style="color: blue">tratto
+                  destro</span>
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(2)">
+              <img src="img/DKVGBGJgev(6).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Ignoriamo tutto ciò che accade per \(x \lt 0\)
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(2)">
+              <img src="img/DKVGBGJgev(7).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Ignoriamo tutto ciò che accade per \(x \lt 0\)
+              </span>
+            </div>
+            <div class="slideDKVGBGJ(2)">
+              <img src="img/DKVGBGJgev(8).png" style="width: 100%; border: 0;">
+              <span class="gray">
+                Ignoriamo tutto ciò che accade per \(x \lt 0\)
+              </span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
+            <button id="previousSlide-buttonDKVGBGJ(2)" onclick="previousSlide(`DKVGBGJ(2)`)">Indietro</button>
+            <button id="nextSlide-buttonDKVGBGJ(2)" onclick="nextSlide(`DKVGBGJ(2)`)">Avanti</button>
+          </div>
+
+          <br>
+          <br>
+
+
+          Unendo i grafici dei segni sopra ottenuti per i tratti sinistro e destro possiamo visualizzare il segno della
+          derivata ed effettuare
+          lo schema di monotonia della funzione
+
+          <br>
+          <br>
+          <img src="img/DKVGBGJgev(9).png" alt="">
+          <br>
+
+
+          Dal segno della derivata possiamo dedurre che la funzione \(f\)
+          <br>
+          <br>
+          <ul>
+            <li>
+              è crescente nell'intervallo \(\left(-2\,,\,\,0\right)\)
+            </li>
+            <br>
+            <li>
+              è decrescente negli intervalli \(\left(-\infty\,,\,\,-2\right)\) e \(\left(0\,,\,\,+\infty\right)\)
+            </li>
+            <br>
+            <li>
+              assume un minimo relativo in \(x = -2\), che è un punto di flesso a tangente orizzontale (perché \(f'(-2)
+              = 0\))
+            </li>
+            <br>
+            <li>
+              assume un massimo relativo in \(x = 0\), che è un punto angoloso.
+            </li>
+          </ul>
+
+          <br>
+          <br>
+
+          Per completezza allego di seguito il grafico della funzione, così che possiate osservarne la corrispondenza
+          con
+          le informazioni ricavate.
+          <br>
+          <br>
+          <img src="img/DKVGBGJgev(10).png" style="width: 100%; border: 0;">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`DKVGBGJgev`)">Copia</button>
+      <button onclick="elimina(`DKVGBGJgev`)">Elimina</button> \(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-qvorhQMXzu" class="div-container" title="qvorhQMXzu">
+    <div class="esercizio" id="qvorhQMXzu">
+      <h3 class="green">Esercizio</h3>
+      <br>
+      <div>
+        Individuare massimi, minimi della funzione, distinguendo i punti stazionari da quelli angolosi.
+        \[
+        f(x) = \sqrt[3]{x^2} - x
+        \]
+      </div>
+
+      <br>
+
+      <button id="hintqvorhQMXzu-button" onclick="showHint(`qvorhQMXzu`)">Svolgimento</button>
+      <div id="hintqvorhQMXzu" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <br>
+        <div class="grayBorder">
+          Individuiamo massimi, minimi della funzione, distinguendo i punti stazionari da quelli angolosi.
+          \[
+          f(x) = \sqrt[3]{x^2} - x
+          \]
+
+          <u><b>Dominio</b></u>
+          <br>
+          Il dominio di \(f\) è \(D = \mathbb{R}\) perché la radice cubica è definita per qualsiasi valore
+          dell'argomento.
+
+          <br>
+          <br>
+
+          <u><b>Continuità</b></u>
+          <br>
+          La funzione \(f\) è continua in tutto il suo dominio \(\mathbb{R}\), poiché somma di funzioni continue.
+
+          <br>
+          <br>
+
+          <u><b>Derivabilità</b></u>
+          <br>
+          Calcoliamo la derivata di \(f\)
+
+          <br>
+          <br>
+
+          <div id="slide-containerqvorhQMXzu" class="slide-container qvorhQMXzu grayBorder">
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(\Big[\sqrt[3]{x^2} - x\Big]' =\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Trasformiamo la radice in una potenza con esponente frazionario
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(\Big[\sqrt[\color{red}{}3\color{black}{}]{x^{\color{blue}{}2\color{black}{}}} - x\Big]' =\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Trasformiamo la radice in una potenza con esponente frazionario
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(\Big[x^\frac{\color{blue}{}2\color{black}{}}{\color{red}{}3\color{black}{}} - x\Big]' =\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Trasformiamo la radice in una potenza con esponente frazionario
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(\Big[x^{\frac{2}{3}} - x\Big]' =\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Applichiamo la linearità della derivata.
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(= \color{red}{}\Big[\color{black}{}x^{\frac{2}{3}} - x\color{red}{}\Big]'\color{black}{} =\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Applichiamo la linearità della derivata.
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(= \color{red}{}\Big[\color{black}{}x^{\frac{2}{3}}\color{red}{}\Big]'\color{black}{} -
+                x\color{red}{}'\color{black}{} =\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(= \color{red}{}\Big[x^{\frac{2}{3}}\Big]'\color{black}{} - x' =\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(= \color{red}{}\dfrac{2}{3}x^{\frac{2}{3} -1}\color{black}{} - x' =\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(= \dfrac{2}{3}x^{\frac{2}{3} -1} - \color{red}{}x' \color{black}{}=\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(= \dfrac{2}{3}x^{\frac{2}{3} -1} - \color{red}{}1 \color{black}{}=\)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(
+                = \dfrac{2}{3}x^{\frac{2}{3} -1} - 1 =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(
+                = \dfrac{2}{3}x^{-\frac{1}{3}} - 1 =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(
+                = \dfrac{2}{3}\dfrac{1}{x^{\frac{1}{3}}} - 1 =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(
+                = \dfrac{2}{3}\dfrac{1}{\sqrt[3]{x}} - 1 =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(
+                = \dfrac{2}{3\,\sqrt[3]{x}} - 1 =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideqvorhQMXzu">
+              <div class="formula">
+                \(
+                = \dfrac{2 - 3\,\sqrt[3]{x}}{3\,\sqrt[3]{x}}
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
+            <button id="previousSlide-buttonqvorhQMXzu" onclick="previousSlide(`qvorhQMXzu`)">Indietro</button>
+            <button id="nextSlide-buttonqvorhQMXzu" onclick="nextSlide(`qvorhQMXzu`)">Avanti</button>
+          </div>
+
+
+          <br>
+          <br>
+          La derivata di \(f\) è
+          \[
+          f'(x) = \dfrac{2 - 3\,\sqrt[3]{x}}{3\,\sqrt[3]{x}}
+          \]
+
+          ed è definita a patto che il denominatore sia differente da \(0\):
+          \[
+          3\,\sqrt[3]{x} \neq 0 \,\,\,\Leftrightarrow\,\,\,\sqrt[3]{x} \neq 0 \,\,\,\Leftrightarrow\,\,\,x \neq 0
+          \]
+          Rispetto all'insieme \(C = \mathbb{R}\) nel quale la funzione è definita e continua, abbiamo "perso" il punto
+          \(x = 0\).
+          La funzione è derivabile in
+          \[
+          D' = (-\infty\,,\,\,0) \cup (0\,,\,\,+\infty)
+          \]
+          Analizziamo di che tipo di punto non derivabile si tratta.
+
+          <br>
+          <br>
+
+          <div
+            style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; width: 100%;">
+            <div style="width: 40%; margin-left: 0; margin-right: 10%;">
+              <b style="font-size: 1rem;">Limite derivata da sinistra</b>
+              \[
+              \begin{align*}
+              &\lim_{x \to 0^{-}} f'(x) =
+              \\\\
+              = &\lim_{x \to 0^{-}} \dfrac{2 - 3\,\sqrt[3]{x}}{3\,\sqrt[3]{x}} =
+              \\\\
+              = & \dfrac{2 - 3\,\sqrt[3]{0}}{3\,\sqrt[3]{0^{-}}}
+              \\\\
+              = & \dfrac{2 - 3\,\cdot 0}{3\,\cdot 0^{-}}
+              \\\\
+              = & \dfrac{2}{0^{-}} = -\infty
+              \end{align*}
+              \]
+            </div>
+            <div style="width: 40%; margin-left: 10%;">
+              <b style="font-size: 1rem;">Limite derivata da destra</b>
+              \[
+              \begin{align*}
+              &\lim_{x \to 0^{+}} f'(x) =
+              \\\\
+              = &\lim_{x \to 0^{+}} \dfrac{2 - 3\,\sqrt[3]{x}}{3\,\sqrt[3]{x}} =
+              \\\\
+              = & \dfrac{2 - 3\,\sqrt[3]{0}}{3\,\sqrt[3]{0^{+}}}
+              \\\\
+              = & \dfrac{2 - 3\,\cdot 0}{3\,\cdot 0^{+}}
+              \\\\
+              = & \dfrac{2}{0^{+}} = +\infty
+              \end{align*}
+              \]
+            </div>
+          </div>
+
+          Poiché i limiti da sinistra e destra della derivata divergono con segno opposto, \(x = 0\) è un punto di
+          cuspide.
+
+          <br>
+          <br>
+
+          <u><b>Segno derivata</b></u>
+          <br>
+          Studiamo il segno della derivata
+          \[
+          \begin{align*}
+          f'(x) \gt 0
+          \\\\
+          \dfrac{2 - 3\,\sqrt[3]{x}}{3\,\sqrt[3]{x}} \gt 0
+          \end{align*}
+          \]
+          per risolvere questa disequazione fratta studiamo separatamente il segno del numeratore e denominatore per
+          realizzare il grafico dei segni.
+          <br>
+          <br>
+          <div
+            style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; width: 100%;">
+            <div style="width: 40%; margin-left: 0; margin-right: 10%;">
+              <b style="font-size: 1rem;">Segno numeratore</b>
+              \[
+              \begin{align*}
+              &2 - 3\,\sqrt[3]{x} \gt 0
+              \\\\
+              &- 3\,\sqrt[3]{x} \gt -2
+              \\\\
+              &\,\sqrt[3]{x} \lt \dfrac{-2}{-3}
+              \\\\
+              &\,\sqrt[3]{x} \lt \dfrac{2}{3}
+              \\\\
+              &\,\left(\sqrt[3]{x}\right)^3 \lt \left(\dfrac{2}{3}\right)^3
+              \\\\
+              &\,x \lt \dfrac{8}{27}
+              \end{align*}
+              \]
+            </div>
+            <div style="width: 40%; margin-left: 10%;">
+              <b style="font-size: 1rem;">Segno denominatore</b>
+              \[
+              \begin{align*}
+              &3\,\sqrt[3]{x} \gt 0
+              \\\\
+              &\,\sqrt[3]{x} \gt 0
+              \\\\
+              &\,x \gt 0
+              \end{align*}
+              \]
+            </div>
+          </div>
+
+          <b style="font-size: 1rem;">Grafico dei segni e schema monotonia</b>
+          <br>
+          <img src="img/qvorhQMXzu(1).png" style="width: 100%; border: 0;">
+          <br>
+          <br>
+
+          Dal segno della derivata possiamo dedurre che la funzione \(f\)
+
+          <br>
+          <br>
+          <ul>
+            <li>
+              è crescente nell'intervallo \(\left(0\,,\,\,\dfrac{8}{27}\right)\)
+            </li>
+            <br>
+            <li>
+              è decrescente negli intervalli \(\left(-\infty\,,\,\,0\right)\) e
+              \(\left(\dfrac{8}{27}\,,\,\,+\infty\right)\)
+            </li>
+            <br>
+            <li>
+              assume un minimo relativo in \(x = 0\), che è un punto di cuspide.
+            </li>
+            <br>
+            <li>
+              assume un massimo relativo in \(x = \dfrac{8}{27}\), che è un punto angoloso, (perché
+              \(f'\left(\dfrac{8}{27}\right) = 0\))
+            </li>
+          </ul>
+
+          <br>
+          <br>
+
+          Per completezza allego di seguito il grafico della funzione, così che possiate osservarne la corrispondenza
+          con
+          le informazioni ricavate.
+          <br>
+          <br>
+          <img src="img/qvorhQMXzu(2).png" style="width: 100%; border: 0;">
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`qvorhQMXzu`)">Copia</button>
+      <button onclick="elimina(`qvorhQMXzu`)">Elimina</button>\(\color{red}{}!\)
+    </div>
+  </div>
+
+  <div id="container-WjQIuIOGlv" class="div-container" title="WjQIuIOGlv">
+    <div class="esercizio" id="WjQIuIOGlv">
+      <h3 class="green">Esercizio</h3>
+      <br>
+      <div>
+        Individuare massimi, minimi della funzione, distinguendo i punti stazionari da quelli angolosi.
+        \[
+        f(x) = \sqrt[3]{x^3 -x^2}
+        \]
+      </div>
+
+      <br>
+
+      <button id="hintWjQIuIOGlv-button" onclick="showHint(`WjQIuIOGlv`)">Svolgimento</button>
+      <div id="hintWjQIuIOGlv" class="hint" style="display: none;">
+        <b class="gray">Svolgimento</b>
+        <br>
+        <div class="grayBorder">
+          Individuiamo massimi, minimi della funzione, distinguendo i punti stazionari da quelli angolosi.
+          \[
+          f(x) = \sqrt[3]{x^3 -x^2}
+          \]
+
+          <u><b>Dominio</b></u>
+          <br>
+          Il dominio di \(f\) è \(D = \mathbb{R}\) perché la radice cubica è definita per qualsiasi valore
+          dell'argomento.
+
+          <br>
+          <br>
+
+          <u><b>Continuità</b></u>
+          <br>
+          La funzione \(f\) è continua in tutto il suo dominio \(\mathbb{R}\), poiché composizione di funzioni continue.
+
+          <br>
+          <br>
+
+          <u><b>Derivabilità</b></u>
+          <br>
+          Calcoliamo la derivata di \(f\)
+
+          <br>
+          <br>
+
+          <div id="slide-containerWjQIuIO(1)" class="slide-container WjQIuIO(1) grayBorder">
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                \Big[\sqrt[3]{x^3 -x^2}\Big]' =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Prima di tutto trasformiamo la radice cubica in potenza con esponente razionale.
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                \Big[\color{red}{}\sqrt[3]{\color{black}{}x^3 -x^2}\color{black}{}\Big]' =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Prima di tutto trasformiamo la radice cubica in potenza con esponente razionale.
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                \Big[\color{red}{}\left(\color{black}{}x^3 -x^2\color{red}{}\right)^{\frac{1}{3}}\color{black}{}\Big]' =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Prima di tutto trasformiamo la radice cubica in potenza con esponente razionale.
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                \Big[\left(x^3 -x^2\right)^{\frac{1}{3}}\Big]' =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(z = x^3 -x^2\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                \Big[\left(\color{red}{}x^3 -x^2\color{black}{}\right)^{\frac{1}{3}}\Big]' =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(z = x^3 - x^2\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                \Big[\left(x^3 -x^2\right)^{\frac{1}{3}}\Big]' =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(z = \color{red}{}x^3 -
+                x^2\color{gray}{}\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                \Big[\left(x^3 -x^2\right)^{\frac{1}{3}}\Big]' =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(\color{red}{}z\color{gray}{} = x^3 -
+                x^2\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                \Big[\color{red}{}z\color{black}{}^{\frac{1}{3}}\Big]' =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(z = x^3 - x^2\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3} \color{red}{}z\color{black}{}^{\frac{1}{3} - 1} \,\cdot\, \color{red}{}z\color{black}{}'=
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(z = x^3 - x^2\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3} z^{\frac{1}{3} - 1} \,\cdot\, z'=
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(\color{red}{}z\color{gray}{} = x^3 -
+                x^2\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3} z^{\frac{1}{3} - 1} \,\cdot\, z'=
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(z = \color{red}{}x^3 -
+                x^2\color{gray}{}\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3} \color{red}{}(x^3 - x^2)\color{black}{}^{\frac{1}{3} - 1} \,\cdot\, \color{red}{}(x^3 -
+                x^2)\color{black}{}'=
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                Deriviamo questa funzione composta. Introduciamo la variabile \(z = x^3 - x^2\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3}(x^3 - x^2)^{\frac{1}{3} - 1} \,\cdot\, \color{red}{}(x^3 - x^2)'\color{black}{} =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3}(x^3 - x^2)^{\frac{1}{3} - 1} \,\cdot\, \color{red}{}(3x^2 -2x)\color{black}{} =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3}(x^3 - x^2)^{-\frac{2}{3}} \,\cdot\, (3x^2 -2x) =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3}\dfrac{1}{(x^3 - x^2)^{\frac{2}{3}}} \,\cdot\, (3x^2 -2x) =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3}\dfrac{1}{(x^3 - x^2)^{\frac{\color{red}{}2}{\color{blue}{}3}}}\color{black}{} \,\cdot\,
+                (3x^2 -2x) =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3}\dfrac{1}{\sqrt[\color{blue}{}3]{(x^3 - x^2)^{\color{red}{}2}}}\color{black}{} \,\cdot\,
+                (3x^2 -2x) =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{1}{3}\dfrac{1}{\sqrt[3]{(x^3 - x^2)^2}} \,\cdot\, (3x^2 -2x) =
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+            <div class="slideWjQIuIO(1)">
+              <div class="formula">
+                \(
+                = \dfrac{3x^2 -2x}{3\,\sqrt[3]{(x^3 - x^2)^2}}
+                \)
+              </div>
+              <br>
+              <br>
+              <span class="gray">
+                \(\)
+              </span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
+            <button id="previousSlide-buttonWjQIuIO(1)" onclick="previousSlide(`WjQIuIO(1)`)">Indietro</button>
+            <button id="nextSlide-buttonWjQIuIO(1)" onclick="nextSlide(`WjQIuIO(1)`)">Avanti</button>
+          </div>
+
+
+          <br>
+          <br>
+          La derivata di \(f\) è
+          \[
+          f'(x) = \dfrac{3x^2 -2x}{3\,\sqrt[3]{(x^3 - x^2)^2}}
+          \]
+
+          ed è definita a patto che il denominatore sia differente da \(0\):
+          \[
+          \begin{align*}
+          &3\,\sqrt[3]{(x^3 - x^2)^2} \neq 0
+          \\\\
+          &\sqrt[3]{(x^3 - x^2)^2} \neq 0
+          \\\\
+          &(x^3 - x^2)^2 \neq 0
+          \\\\
+          &x^3 - x^2 \neq 0
+          \\\\
+          &\color{red}{}\underbrace{\color{black}{}x^2}\color{black}{}\,\cdot\,\color{blue}{}\underbrace{\color{black}{}(x
+          - 1)}\color{black}{} \neq 0
+          \end{align*}
+          \]
+          L'ultima equazione scritta è risolta se entrambi i fattori evidenziati sono diversi da \(0\):
+          \[
+          \begin{align*}
+          \color{red}{}\underbrace{\color{black}{}x^2}\color{black}{} \neq 0 \quad &e \quad
+          \color{blue}{}\underbrace{\color{black}{}x - 1}\color{black}{} \neq 0
+          \\\\
+          x \neq 0 \quad &e \quad x \neq 1
+          \end{align*}
+          \]
+
+
+          Rispetto all'insieme \(C = \mathbb{R}\) nel quale la funzione è definita e continua, abbiamo "perso" i punti
+          \(x = 0\) e \(x = 1\).
+          Pertanto la funzione è derivabile in
+          \[
+          D' = (-\infty\,,\,\,0) \cup (0\,,\,\,1) \cup (1\,,\,\,+\infty)
+          \]
+          Analizziamo di che tipo di punti non derivabili si tratta.
+          <br>
+          Nei calcoli che segue risulta comodo riscrivere la derivata in questo modo
+          <br>
+          <br>
+          <div id="slide-containerWjQIuIO(2)" class="slide-container WjQIuIO(2) grayBorder">
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                \dfrac{3x^2 -2x}{3\,\sqrt[3]{\big(x^3 -x^2\big)^2}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{3x^2 -2x}{3\,\sqrt[3]{\big(\color{red}{}x^2\color{black}{} \cdot\color{blue}{} x\color{black}{}
+                - \color{red}x^2 \color{black}{}\cdot\color{blue}{} 1\color{black}{}\big)^2}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{3x^2 -2x}{3\,\sqrt[3]{\big(\color{red}x^2\color{black}{} \cdot \color{blue}{}(x -
+                1)\color{black}{}\big)^2}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{\color{blue}{}3x\color{black}{}\cdot\color{red}{}x\color{black}{}
+                \color{blue}{}-2\color{black}{}\cdot\color{red}{}x}{3\,\sqrt[3]{\big(x^2 \cdot (x - 1)\big)^2}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{\color{red}{}x\color{black}{}\cdot \color{blue}{}(3x -2)}{3\,\sqrt[3]{\big(x^2 \cdot (x -
+                1)\big)^2}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x \cdot (3x -2)}{3\,\sqrt[3]{\big(x^2 \cdot (x - 1)\big)^2}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x \cdot(3x -2)}{3\,\sqrt[3]{\color{red}{}\big(\color{black}{}x^2 \cdot (x -
+                1)\color{red}{}\big)^2}\color{black}{}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x \cdot(3x -2)}{3\,\sqrt[3]{\color{red}{}(\color{black}{}x^2\color{red}{})^{2\color{black}{}}
+                \cdot \color{red}{}(\color{black}{}x - 1\color{red}{})^{2\color{black}{}}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x \cdot(3x -2)}{3\,\sqrt[3]{x^4 \cdot (x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x \cdot(3x -2)}{3\,\color{red}{}\sqrt[3]{\color{black}{}x^{4} \cdot (x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x \cdot(3x -2)}{3\,\color{red}{}\sqrt[3]{\color{black}{}x^{4}} \cdot
+                \color{red}{}\sqrt[3]{\color{black}{}(x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x \cdot(3x -2)}{3\,\color{red}{}\sqrt[3]{\color{black}{}x^{\color{red}{}4}}\color{black}{}
+                \cdot \sqrt[3]{(x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x \cdot(3x -2)}{3\,x^{\color{red}{}\frac{4}{3}}\color{black}{} \cdot \sqrt[3]{(x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{x^{\color{red}{}1} \cdot(3x -2)}{3\,x^{\frac{4}{3}} \cdot \sqrt[3]{(x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{3x -2}{3\,x^{\frac{4}{3}} \cdot x^{\color{red}{}-1}\cdot \sqrt[3]{(x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{3x -2}{3\,x^{\color{red}{}\frac{4}{3}} \cdot x^{\color{red}{}-1}\cdot \sqrt[3]{(x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{3x -2}{3\,x^{\color{red}{}\frac{4}{3} -1} \cdot \sqrt[3]{(x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{3x -2}{3\,x^{\color{red}{}\frac{1}{3}} \cdot \sqrt[3]{(x - 1)^{2}}} =
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{3x -2}{3\,\color{red}{}\sqrt[3]{\color{black}{}x}\color{black}{} \cdot \sqrt[3]{(x - 1)^{2}}}
+                \)
+              </div>
+            </div>
+            <div class="slideWjQIuIO(2)">
+              <div class="formula">
+                \(
+                = \dfrac{3x -2}{3\,\sqrt[3]{x} \cdot \sqrt[3]{(x - 1)^{2}}}
+                \)
+              </div>
+            </div>
+
+          </div>
+          <br>
+          <br>
+          <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
+            <button id="previousSlide-buttonWjQIuIO(2)" onclick="previousSlide(`WjQIuIO(2)`)">Indietro</button>
+            <button id="nextSlide-buttonWjQIuIO(2)" onclick="nextSlide(`WjQIuIO(2)`)">Avanti</button>
+          </div>
+
+
+
+
+          <br>
+          <br>
+
+          <b style="font-size: 1rem;">Limite derivata per \(\boldsymbol{x \to 0}\) da sinistra</b>
+          <div class="formula">
+            \[
+            \begin{align*}
+            &\lim_{x \to 0^{-}} f'(x) =
+            \\\\
+            = &\lim_{x \to 0^{-}} \dfrac{3x -2}{3\,\sqrt[3]{x}\,\sqrt[3]{(x - 1)^{2}}} =
+            \\\\
+            &\dfrac{3\cdot 0 -2}{3\,\sqrt[3]{0^{-}}\,\sqrt[3]{(0 - 1)^{2}}} =
+            \\\\
+            &\dfrac{-2}{3\,\cdot\,0^{^-}\,\cdot\,\sqrt[3]{1}} =
+            \\\\
+            &\dfrac{-2}{0^{^-}\,\cdot\,1} =
+            \\\\
+            &\dfrac{-2}{0^{^-}} = +\infty
+            \end{align*}
+            \]
+          </div>
+
+          <br>
+          <br>
+
+          <b style="font-size: 1rem;">Limite derivata per \(\boldsymbol{x \to 0}\) da destra</b>
+          <div class="formula">
+            \[
+            \begin{align*}
+            &\lim_{x \to 0^{+}} f'(x) =
+            \\\\
+            = &\lim_{x \to 0^{+}} \dfrac{3x -2}{3\,\sqrt[3]{x}\,\sqrt[3]{(x - 1)^{2}}} =
+            \\\\
+            &\dfrac{3\cdot 0 -2}{3\,\sqrt[3]{0^{+}}\,\sqrt[3]{(0 - 1)^{2}}} =
+            \\\\
+            &\dfrac{-2}{3\,\cdot\,0^{^+}\,\cdot\,\sqrt[3]{1}} =
+            \\\\
+            &\dfrac{-2}{0^{^+}\,\cdot\,1} =
+            \\\\
+            &\dfrac{-2}{0^{^+}} = -\infty
+            \end{align*}
+            \]
+          </div>
+
+          La derivata \(f'\) per \(x \to 0^{\pm}\) diverge a \(\mp \infty\), quindi il punto \(x = 0\) è di cuspide.
+
+          <br>
+          <br>
+
+          <b style="font-size: 1rem;">Limite derivata per \(\boldsymbol{x \to 1}\) da sinistra e destra</b>
+          <div class="formula">
+            \[
+            \begin{align*}
+            &\lim_{x \to 1^{\pm}} f'(x) =
+            \\\\
+            = &\lim_{x \to 1^{\pm}} \dfrac{3x -2}{3\,\sqrt[3]{x}\,\sqrt[3]{(x - 1)^{2}}} =
+            \\\\
+            &\dfrac{3\cdot 1 -2}{3\,\sqrt[3]{1}\,\sqrt[3]{(1^{^\pm} - 1)^{2}}} =
+            \\\\
+            &\dfrac{3 -2}{3\,\cdot \,1\,\cdot \sqrt[3]{(0^{^\pm})^{2}}} =
+            \\\\
+            &\dfrac{1}{3 \cdot \sqrt[3]{0^{^+}}} =
+            \\\\
+            &\dfrac{1}{3 \cdot 0^{^+}} =
+            \\\\
+            &\dfrac{1}{0^{^+}} = +\infty
+            \end{align*}
+            \]
+          </div>
+
+          La derivata \(f'\) per \(x \to 1^{\pm}\) diverge a \(+\infty\), quindi il punto \(x = 0\) è di flesso a
+          tangente verticale.
+
+          <br>
+          <br>
+
+          <u><b>Segno derivata</b></u>
+          <br>
+          Studiamo il segno della derivata. In questo caso usiamo nuovamente la scrittura iniziale della derivata
+          \[
+          \begin{align*}
+          &f'(x) \gt 0
+          \\\\
+          &\dfrac{3x^2 -2x}{3\,\sqrt[3]{(x^3 - x^2)^2}}
+          \end{align*}
+          \]
+          Osserviamo che il denominatore è sempre positivo per \(x \in D'\), perché è il triplo della radice cubica di
+          un quadrato.
+          <br>
+          \[
+          \begin{align*}
+          &\dfrac{3x^2 -2x}{\underset{+}{\underbrace{3\,\sqrt[3]{(x^3 - x^2)^2}}}} \gt 0
+          \\\\
+          &3x^2 -2x \gt 0
+          \end{align*}
+          \]
+          Usiamo il metodo della parabola.
+          Risolviamo l'associata
+          \[
+          \begin{align*}
+          &3x^2 -2x = 0
+          \\\\
+          &x \cdot (3x -2) = 0
+          \\\\
+          &x = 0 \quad oppure \quad 3x -2 = 0
+          \\\\
+          &x = 0 \quad oppure \quad x = \dfrac{2}{3}
+          \end{align*}
+          \]
+
+          <img src="img/WjQIuIOGlv(1).png" style="width: 60%; border: 0;">
+
+          <br>
+          <br>
+          Effettuiamo lo schema di monotonia a partire dal grafico dei segni della derivata (ricordando che essa non
+          esiste per \(x = 0\) ed \(x = 1\))
+          <br>
+          <br>
+          <img src="img/WjQIuIOGlv(2).png" style="width: 100%; border: 0;">
+          <br>
+          <br>
+
+          Si ha perciò che la funzione \(f\)
+
+          <br>
+          <br>
+          <ul>
+            <li>
+              è crescente negli intervalli \(\left(-\infty\,,\,\,0\right)\), \(\left(\dfrac{2}{3}\,,\,\,1\right)\) e
+              \(\left(1\,,\,\,+\infty\right)\);
+            </li>
+            <br>
+            <li>
+              è decrescente nell'intervallo \(\left(0\,,\,\,\dfrac{2}{3}\right)\);
+            </li>
+            <br>
+            <li>
+              assume un massimo relativo in \(x = 0\), che è un punto di cuspide;
+            </li>
+            <br>
+            <li>
+              assume un massimo relativo in \(x = \dfrac{2}{3}\), che è un punto di flesso a tangente orizzontale;
+            </li>
+            <br>
+            <li>
+              presenta un flesso a tangente verticale in \(x = 1\)
+            </li>
+          </ul>
+
+          <br>
+          <br>
+
+          Per completezza allego di seguito il grafico della funzione, così che possiate osservarne la corrispondenza
+          con
+          le informazioni ricavate.
+          <br>
+          <br>
+          <img src="img/WjQIuIOGlv(3).png" style="width: 100%; border: 0;">
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`WjQIuIOGlv`)">Copia</button>
+      <button onclick="elimina(`WjQIuIOGlv`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-BAPpzhWfNa" class="div-container" title="BAPpzhWfNa">
+    <div class="esercizio" id="BAPpzhWfNa">
+      <h3 class="yellow">Concavità e flessi</h3>
+      <div class="esempi-container">
+        <u><b style="font-size: 1.3rem;">Concavità di una funzione in un punto</b></u>
+        <br>
+        <br>
+        Abbiamo già incontrato il concetto di concavità nello studio della parabola. Mettiamo in evidenza una proprietà
+        che ci permetterà di estendere il concetto al grafico di una qualsiasi funzione \(f\).
+        <br>
+        <br>
+
+        Prendiamo una parabola con concavità rivolta verso l'alto. Consideriamo un qualsiasi punto sulla parabola e
+        disegnamo la tangente al grafico in tale punto.
+        Osserviamo che il grafico della funzione si trova tutto <u>sopra</u> la retta tangente.
+
+
+        <br>
+        <br>
+        <div class="grayBorder">
+          <div class="geogebra-container">
+            <div id="geogebraBAPpzhW(1)"></div>
+          </div>
+          <span class="gray" style="font-size: 1rem;">
+            Usate lo slider per modificare il punto di tangenza. Comunque lo scegliate il grafico della parabola
+            si trova tutto sopra la retta tangente.
+          </span>
+        </div>
+
+        <br>
+        Viceversa, se consideriamo una parabola con concavità rivolta verso il basso, essa si troverà sempre
+        <u>sotto</u> alla
+        retta tangente, comunque scelto il punto di tangenza.
+
+        <br>
+        <br>
+        <div class="grayBorder">
+          <div class="geogebra-container">
+            <div id="geogebraBAPpzhW(2)"></div>
+          </div>
+          <span class="gray" style="font-size: 1rem;">
+            Usate lo slider per modificare il punto di tangenza. Comunque lo scegliate il grafico della parabola
+            si trova tutto sotto la retta tangente.
+          </span>
+        </div>
+
+        <br>
+
+        Prendiamo ora il grafico di una generica funzione \(f\). Siccome vogliamo poter disegnare la tangente in
+        tutti i punti del grafico, supponiamo che la funzione \(f\) sia derivabile in tutto il suo dominio.
+        <br>
+        Guardando il grafico interattivo vediamo che in questo caso parte del grafico si trova sopra la retta tangente
+        al punto
+        \((x_0\,,\,\,f(x_0))\),
+        parte sotto.
+
+        <br>
+        <br>
+        <div class="grayBorder">
+          <div class="geogebra-container">
+            <div id="geogebraBAPpzhW(3)"></div>
+          </div>
+          <span class="gray" style="font-size: 1rem;">
+            Premete il pulsante "Avvia".
+          </span>
+        </div>
+
+        <br>
+
+        Se restringiamo l'attenzione ad un intorno di \(x_0\) effettivamente tutto il grafico evidenziato in nero è
+        sopra
+        la retta tangente. Diremo allora che la funzione \(f\) in \(x_0\) ha concavità verso l'alto.
+
+        <br>
+        <br>
+
+        Consideriamo un altro punto di tangenza (figura sotto). In questo caso in corrispondenza dell'intervallo
+        evidenziato in rosso il tratto di grafico si trova sotto la retta. Diremo che la funzione \(f\) in \(x_0\)
+        ha concavità verso il basso.
+
+        <br>
+        <br>
+        <div class="grayBorder">
+          <div class="geogebra-container">
+            <div id="geogebraBAPpzhW(4)"></div>
+          </div>
+        </div>
+
+        <br>
+
+        Siamo pronti per digerire le seguenti definizioni
+
+        <br>
+        <br>
+
+        <b>Concavità verso l'alto</b>
+        <br>
+        <div class="grayBorder">
+          Una funzione derivabile \(f\) ha concavità in \(x_0\) rivolta verso l'alto se esiste un intorno \(I\) tale che
+          <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+            <div style="width: fit-content; margin-right: 1rem;">
+              \[
+              f(x) \gt t(x)
+              \]
+            </div>
+            <div style="width: fit-content;">
+              per ogni \(x \in I - \{x_0\}\)
+            </div>
+          </div>
+          dove \(t\) indica la retta tangente.
+          <br>
+          <br>
+          <img src="img/definizioneConcavitaVersoAlto.png" style="width: 100%; border: 0">
+        </div>
+
+        <br>
+        <br>
+
+        <b>Concavità verso il basso</b>
+        <br>
+        <div class="grayBorder">
+          Una funzione derivabile \(f\) ha concavità in \(x_0\) rivolta verso il basso se esiste un intorno \(I\) tale
+          che
+          <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+            <div style="width: fit-content; margin-right: 1rem;">
+              \[
+              f(x) \lt t(x)
+              \]
+            </div>
+            <div style="width: fit-content;">
+              per ogni \(x \in I - \{x_0\}\)
+            </div>
+          </div>
+          dove \(t\) indica la retta tangente.
+          <br>
+          <br>
+          <img src="img/definizioneConcavitaVersoBasso.png" style="width: 100%; border: 0">
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <u><b style="font-size: 1.3rem;">Flessi</b></u>
+        <br>
+        <br>
+        Riprendiamo il grafico interattivo mostrato in precedenza e consideriamo una posizione particolare della
+        tangente.
+        <br>
+        <br>
+        <img src="img/flesso(1).png" alt="">
+        <br>
+        Guardando la parte di intervallo a sinistra di \(x_0\) osserviamo che il grafico è sotto la retta tangente.
+        Viceversa
+        considerando la parte di intervallo a destra di \(x_0\) il grafico si trova sopra la retta tangente.
+        Diremo in questo caso che \(x_0\) è un <b>punto di flesso</b>.
+
+        <br>
+        <br>
+
+        Non è la prima volta che incontriamo il termine "flesso". Tra le tipologie di punti di non derivabilità abbiamo
+        presentato il flesso <b>a tangente verticale</b>.
+        <br>
+        <br>
+        <img src="img/flesso(2).png" style="width: 100%; border: 0;">
+        <br>
+        Come già visto caso si presenta se
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+          <div style="width: fit-content; margin-right: 1rem;">
+            \(f\) non è
+            <br>
+            derivabile in \(x_0\)
+          </div>
+          <div style="width: fit-content; margin-right: 1rem;">
+            e
+          </div>
+          <div style="width: fit-content;">
+            \[
+            \begin{cases}
+            \lim_{x \to x_0} f'(x) = \pm \infty
+            \\\\
+            \lim_{x \to x_0} f'(x) = \mp \infty
+            \end{cases}
+            \]
+          </div>
+        </div>
+
+        Analizziamo un ultimo caso di flesso, quello <b>a tangente orizzontale</b>. Questo si presenta quando la
+        derivata
+        della funzione assume uno stesso segno in un intervallo \(I\) eccetto in un punto \(x_0\) dove vale zero.
+        <br>
+        <br>
+        <div style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: flex-start;">
+          <img src="img/flesso(3).png" style="width: 48%; border: 0;">
+          <br>
+          <img src="img/flesso(4).png" style="width: 48%; border: 0;">
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+
+      <script>
+        var ggbApp1 = new GGBApplet({
+            "appName": "classic",
+            "id": "gg1",
+            "showToolBar": false,
+            "showAlgebraInput": false,
+            "showMenuBar": false,
+            "enableShiftDragZoom": false,
+            "scaleContainerClass": "geogebra-container",
+            "filename": "img/concavitaVersoLAlto.ggb"
+          },
+          true
+        );
+
+        var ggbApp2 = new GGBApplet({
+            "appName": "classic",
+            "id": "gg2",
+            "showToolBar": false,
+            "showAlgebraInput": false,
+            "showMenuBar": false,
+            "enableShiftDragZoom": false,
+            "scaleContainerClass": "geogebra-container",
+            "filename": "img/concavitaVersoIlBasso.ggb"
+          },
+          true
+        );
+
+        var ggbApp3 = new GGBApplet({
+            "appName": "classic",
+            "id": "gg3",
+            "showToolBar": false,
+            "showAlgebraInput": false,
+            "showMenuBar": false,
+            "enableShiftDragZoom": false,
+            "scaleContainerClass": "geogebra-container",
+            "filename": "img/concavita.ggb"
+          },
+          true
+        );
+
+        var ggbApp4 = new GGBApplet({
+            "appName": "classic",
+            "id": "gg4",
+            "showToolBar": false,
+            "showAlgebraInput": false,
+            "showMenuBar": false,
+            "enableShiftDragZoom": false,
+            "scaleContainerClass": "geogebra-container",
+            "filename": "img/concavita(2).ggb"
+          },
+          true
+        );
+
+        window.addEventListener("load", function () {
+          ggbApp1.inject('geogebra1');
+          ggbApp2.inject('geogebra2');
+          ggbApp3.inject('geogebra3');
+          ggbApp4.inject('geogebra4');
+        });
+      </script>
+
+    </div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`BAPpzhWfNa`)">Copia</button>
+      <button onclick="elimina(`BAPpzhWfNa`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-FiEgPppIEI" class="div-container" title="FiEgPppIEI">
+    <div class="esercizio" id="FiEgPppIEI"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`FiEgPppIEI`)">Copia</button>
+      <button onclick="elimina(`FiEgPppIEI`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-sfyqnoejWL" class="div-container" title="sfyqnoejWL">
+    <div class="esercizio" id="sfyqnoejWL"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`sfyqnoejWL`)">Copia</button>
+      <button onclick="elimina(`sfyqnoejWL`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-lvyLcHTAsg" class="div-container" title="lvyLcHTAsg">
+    <div class="esercizio" id="lvyLcHTAsg"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`lvyLcHTAsg`)">Copia</button>
+      <button onclick="elimina(`lvyLcHTAsg`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-MVcygTLwzd" class="div-container" title="MVcygTLwzd">
+    <div class="esercizio" id="MVcygTLwzd"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`MVcygTLwzd`)">Copia</button>
+      <button onclick="elimina(`MVcygTLwzd`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-GJBIARVnlB" class="div-container" title="GJBIARVnlB">
+    <div class="esercizio" id="GJBIARVnlB"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`GJBIARVnlB`)">Copia</button>
+      <button onclick="elimina(`GJBIARVnlB`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-lkNUQnkUkn" class="div-container" title="lkNUQnkUkn">
+    <div class="esercizio" id="lkNUQnkUkn"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`lkNUQnkUkn`)">Copia</button>
+      <button onclick="elimina(`lkNUQnkUkn`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-hUsgZrvqlB" class="div-container" title="hUsgZrvqlB">
+    <div class="esercizio" id="hUsgZrvqlB"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`hUsgZrvqlB`)">Copia</button>
+      <button onclick="elimina(`hUsgZrvqlB`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-nlJQzfPZGv" class="div-container" title="nlJQzfPZGv">
+    <div class="esercizio" id="nlJQzfPZGv"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`nlJQzfPZGv`)">Copia</button>
+      <button onclick="elimina(`nlJQzfPZGv`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-WGgqbsoKlP" class="div-container" title="WGgqbsoKlP">
+    <div class="esercizio" id="WGgqbsoKlP"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`WGgqbsoKlP`)">Copia</button>
+      <button onclick="elimina(`WGgqbsoKlP`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-iDXQJmwWaD" class="div-container" title="iDXQJmwWaD">
+    <div class="esercizio" id="iDXQJmwWaD"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`iDXQJmwWaD`)">Copia</button>
+      <button onclick="elimina(`iDXQJmwWaD`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-iCNzpPDtRS" class="div-container" title="iCNzpPDtRS">
+    <div class="esercizio" id="iCNzpPDtRS"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`iCNzpPDtRS`)">Copia</button>
+      <button onclick="elimina(`iCNzpPDtRS`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-LiCEzSauGq" class="div-container" title="LiCEzSauGq">
+    <div class="esercizio" id="LiCEzSauGq"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`LiCEzSauGq`)">Copia</button>
+      <button onclick="elimina(`LiCEzSauGq`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-bxcKmahjMC" class="div-container" title="bxcKmahjMC">
+    <div class="esercizio" id="bxcKmahjMC"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`bxcKmahjMC`)">Copia</button>
+      <button onclick="elimina(`bxcKmahjMC`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ooHaoXrFFc" class="div-container" title="ooHaoXrFFc">
+    <div class="esercizio" id="ooHaoXrFFc"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ooHaoXrFFc`)">Copia</button>
+      <button onclick="elimina(`ooHaoXrFFc`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-WIycZDxvpS" class="div-container" title="WIycZDxvpS">
+    <div class="esercizio" id="WIycZDxvpS"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`WIycZDxvpS`)">Copia</button>
+      <button onclick="elimina(`WIycZDxvpS`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-hGfUMHeZhO" class="div-container" title="hGfUMHeZhO">
+    <div class="esercizio" id="hGfUMHeZhO"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`hGfUMHeZhO`)">Copia</button>
+      <button onclick="elimina(`hGfUMHeZhO`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-DXqqBHWnYR" class="div-container" title="DXqqBHWnYR">
+    <div class="esercizio" id="DXqqBHWnYR"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`DXqqBHWnYR`)">Copia</button>
+      <button onclick="elimina(`DXqqBHWnYR`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ZzVVPquSzo" class="div-container" title="ZzVVPquSzo">
+    <div class="esercizio" id="ZzVVPquSzo"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ZzVVPquSzo`)">Copia</button>
+      <button onclick="elimina(`ZzVVPquSzo`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ysTGvkOaJF" class="div-container" title="ysTGvkOaJF">
+    <div class="esercizio" id="ysTGvkOaJF"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ysTGvkOaJF`)">Copia</button>
+      <button onclick="elimina(`ysTGvkOaJF`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-fjNxjyvAmo" class="div-container" title="fjNxjyvAmo">
+    <div class="esercizio" id="fjNxjyvAmo"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`fjNxjyvAmo`)">Copia</button>
+      <button onclick="elimina(`fjNxjyvAmo`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-usHSHFTEKS" class="div-container" title="usHSHFTEKS">
+    <div class="esercizio" id="usHSHFTEKS"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`usHSHFTEKS`)">Copia</button>
+      <button onclick="elimina(`usHSHFTEKS`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ghIEnhJdch" class="div-container" title="ghIEnhJdch">
+    <div class="esercizio" id="ghIEnhJdch"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ghIEnhJdch`)">Copia</button>
+      <button onclick="elimina(`ghIEnhJdch`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-DXkYYbwzSU" class="div-container" title="DXkYYbwzSU">
+    <div class="esercizio" id="DXkYYbwzSU"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`DXkYYbwzSU`)">Copia</button>
+      <button onclick="elimina(`DXkYYbwzSU`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-AuwEqpUTIv" class="div-container" title="AuwEqpUTIv">
+    <div class="esercizio" id="AuwEqpUTIv"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`AuwEqpUTIv`)">Copia</button>
+      <button onclick="elimina(`AuwEqpUTIv`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-PyzyXhImjk" class="div-container" title="PyzyXhImjk">
+    <div class="esercizio" id="PyzyXhImjk"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`PyzyXhImjk`)">Copia</button>
+      <button onclick="elimina(`PyzyXhImjk`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-uPkzdMlLDQ" class="div-container" title="uPkzdMlLDQ">
+    <div class="esercizio" id="uPkzdMlLDQ"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`uPkzdMlLDQ`)">Copia</button>
+      <button onclick="elimina(`uPkzdMlLDQ`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-wHvglySUoz" class="div-container" title="wHvglySUoz">
+    <div class="esercizio" id="wHvglySUoz"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`wHvglySUoz`)">Copia</button>
+      <button onclick="elimina(`wHvglySUoz`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-vvUrAkXGJB" class="div-container" title="vvUrAkXGJB">
+    <div class="esercizio" id="vvUrAkXGJB"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`vvUrAkXGJB`)">Copia</button>
+      <button onclick="elimina(`vvUrAkXGJB`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-WDKNBrEciV" class="div-container" title="WDKNBrEciV">
+    <div class="esercizio" id="WDKNBrEciV"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`WDKNBrEciV`)">Copia</button>
+      <button onclick="elimina(`WDKNBrEciV`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-OaNcbocLHT" class="div-container" title="OaNcbocLHT">
+    <div class="esercizio" id="OaNcbocLHT"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`OaNcbocLHT`)">Copia</button>
+      <button onclick="elimina(`OaNcbocLHT`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-hciJOWdAgS" class="div-container" title="hciJOWdAgS">
+    <div class="esercizio" id="hciJOWdAgS"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`hciJOWdAgS`)">Copia</button>
+      <button onclick="elimina(`hciJOWdAgS`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-pYcNSjoihU" class="div-container" title="pYcNSjoihU">
+    <div class="esercizio" id="pYcNSjoihU"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`pYcNSjoihU`)">Copia</button>
+      <button onclick="elimina(`pYcNSjoihU`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-AhIcSCIMFY" class="div-container" title="AhIcSCIMFY">
+    <div class="esercizio" id="AhIcSCIMFY"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`AhIcSCIMFY`)">Copia</button>
+      <button onclick="elimina(`AhIcSCIMFY`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ReAVJnoYzp" class="div-container" title="ReAVJnoYzp">
+    <div class="esercizio" id="ReAVJnoYzp"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ReAVJnoYzp`)">Copia</button>
+      <button onclick="elimina(`ReAVJnoYzp`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-mWpMkjQkwy" class="div-container" title="mWpMkjQkwy">
+    <div class="esercizio" id="mWpMkjQkwy"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`mWpMkjQkwy`)">Copia</button>
+      <button onclick="elimina(`mWpMkjQkwy`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-fovSLTWWob" class="div-container" title="fovSLTWWob">
+    <div class="esercizio" id="fovSLTWWob"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`fovSLTWWob`)">Copia</button>
+      <button onclick="elimina(`fovSLTWWob`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-bKKnnUwUVZ" class="div-container" title="bKKnnUwUVZ">
+    <div class="esercizio" id="bKKnnUwUVZ"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`bKKnnUwUVZ`)">Copia</button>
+      <button onclick="elimina(`bKKnnUwUVZ`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-YWtvFByGHf" class="div-container" title="YWtvFByGHf">
+    <div class="esercizio" id="YWtvFByGHf"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`YWtvFByGHf`)">Copia</button>
+      <button onclick="elimina(`YWtvFByGHf`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-QKJEsLxHjo" class="div-container" title="QKJEsLxHjo">
+    <div class="esercizio" id="QKJEsLxHjo"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`QKJEsLxHjo`)">Copia</button>
+      <button onclick="elimina(`QKJEsLxHjo`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-wGhzjyAIlb" class="div-container" title="wGhzjyAIlb">
+    <div class="esercizio" id="wGhzjyAIlb"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`wGhzjyAIlb`)">Copia</button>
+      <button onclick="elimina(`wGhzjyAIlb`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-FBdpHoRrkg" class="div-container" title="FBdpHoRrkg">
+    <div class="esercizio" id="FBdpHoRrkg"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`FBdpHoRrkg`)">Copia</button>
+      <button onclick="elimina(`FBdpHoRrkg`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-VdGgVZnBic" class="div-container" title="VdGgVZnBic">
+    <div class="esercizio" id="VdGgVZnBic"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`VdGgVZnBic`)">Copia</button>
+      <button onclick="elimina(`VdGgVZnBic`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-diyOeCplnc" class="div-container" title="diyOeCplnc">
+    <div class="esercizio" id="diyOeCplnc"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`diyOeCplnc`)">Copia</button>
+      <button onclick="elimina(`diyOeCplnc`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-pWNNXdUwYK" class="div-container" title="pWNNXdUwYK">
+    <div class="esercizio" id="pWNNXdUwYK"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`pWNNXdUwYK`)">Copia</button>
+      <button onclick="elimina(`pWNNXdUwYK`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-kxLMakzCpD" class="div-container" title="kxLMakzCpD">
+    <div class="esercizio" id="kxLMakzCpD"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`kxLMakzCpD`)">Copia</button>
+      <button onclick="elimina(`kxLMakzCpD`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-FsadFDQqjO" class="div-container" title="FsadFDQqjO">
+    <div class="esercizio" id="FsadFDQqjO"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`FsadFDQqjO`)">Copia</button>
+      <button onclick="elimina(`FsadFDQqjO`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-oFwDJnREvP" class="div-container" title="oFwDJnREvP">
+    <div class="esercizio" id="oFwDJnREvP"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`oFwDJnREvP`)">Copia</button>
+      <button onclick="elimina(`oFwDJnREvP`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-YntCKOsYAr" class="div-container" title="YntCKOsYAr">
+    <div class="esercizio" id="YntCKOsYAr"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`YntCKOsYAr`)">Copia</button>
+      <button onclick="elimina(`YntCKOsYAr`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ezEjuPYTmv" class="div-container" title="ezEjuPYTmv">
+    <div class="esercizio" id="ezEjuPYTmv"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ezEjuPYTmv`)">Copia</button>
+      <button onclick="elimina(`ezEjuPYTmv`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-qVzeKiJCAy" class="div-container" title="qVzeKiJCAy">
+    <div class="esercizio" id="qVzeKiJCAy"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`qVzeKiJCAy`)">Copia</button>
+      <button onclick="elimina(`qVzeKiJCAy`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-eCPTuGjXYK" class="div-container" title="eCPTuGjXYK">
+    <div class="esercizio" id="eCPTuGjXYK"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`eCPTuGjXYK`)">Copia</button>
+      <button onclick="elimina(`eCPTuGjXYK`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ksyQzzvOQn" class="div-container" title="ksyQzzvOQn">
+    <div class="esercizio" id="ksyQzzvOQn"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ksyQzzvOQn`)">Copia</button>
+      <button onclick="elimina(`ksyQzzvOQn`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-yUIZOlHoYi" class="div-container" title="yUIZOlHoYi">
+
+    <div class="esercizio" id="yUIZOlHoYi"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`yUIZOlHoYi`)">Copia</button><button onclick="elimina(`yUIZOlHoYi`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-GWaLPrxFhT" class="div-container" title="GWaLPrxFhT">
+    <div class="esercizio" id="GWaLPrxFhT"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`GWaLPrxFhT`)">Copia</button><button onclick="elimina(`GWaLPrxFhT`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-onkGSHuYkX" class="div-container" title="onkGSHuYkX">
+    <div class="esercizio" id="onkGSHuYkX"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`onkGSHuYkX`)">Copia</button><button onclick="elimina(`onkGSHuYkX`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-HGdlWWsTlK" class="div-container" title="HGdlWWsTlK">
+    <div class="esercizio" id="HGdlWWsTlK"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`HGdlWWsTlK`)">Copia</button><button onclick="elimina(`HGdlWWsTlK`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-uJXCavKlQP" class="div-container" title="uJXCavKlQP">
+    <div class="esercizio" id="uJXCavKlQP"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`uJXCavKlQP`)">Copia</button><button onclick="elimina(`uJXCavKlQP`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-yEeShfIaHl" class="div-container" title="yEeShfIaHl">
+    <div class="esercizio" id="yEeShfIaHl"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`yEeShfIaHl`)">Copia</button><button onclick="elimina(`yEeShfIaHl`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-oYLlviukUq" class="div-container" title="oYLlviukUq">
+    <div class="esercizio" id="oYLlviukUq"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`oYLlviukUq`)">Copia</button><button onclick="elimina(`oYLlviukUq`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-JeCtVszOqB" class="div-container" title="JeCtVszOqB">
+    <div class="esercizio" id="JeCtVszOqB"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`JeCtVszOqB`)">Copia</button><button onclick="elimina(`JeCtVszOqB`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-tiJaVYvraP" class="div-container" title="tiJaVYvraP">
+    <div class="esercizio" id="tiJaVYvraP"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`tiJaVYvraP`)">Copia</button><button onclick="elimina(`tiJaVYvraP`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-isZlcVkSRR" class="div-container" title="isZlcVkSRR">
+    <div class="esercizio" id="isZlcVkSRR"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`isZlcVkSRR`)">Copia</button><button onclick="elimina(`isZlcVkSRR`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-cjNIPmGTPF" class="div-container" title="cjNIPmGTPF">
+    <div class="esercizio" id="cjNIPmGTPF"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`cjNIPmGTPF`)">Copia</button><button onclick="elimina(`cjNIPmGTPF`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-NbHLWuaLER" class="div-container" title="NbHLWuaLER">
+    <div class="esercizio" id="NbHLWuaLER"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`NbHLWuaLER`)">Copia</button><button onclick="elimina(`NbHLWuaLER`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-obemEydYEP" class="div-container" title="obemEydYEP">
+    <div class="esercizio" id="obemEydYEP"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`obemEydYEP`)">Copia</button><button onclick="elimina(`obemEydYEP`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-ZnYUGQQHZd" class="div-container" title="ZnYUGQQHZd">
+    <div class="esercizio" id="ZnYUGQQHZd"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`ZnYUGQQHZd`)">Copia</button><button onclick="elimina(`ZnYUGQQHZd`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-YbpCzGKzOZ" class="div-container" title="YbpCzGKzOZ">
+    <div class="esercizio" id="YbpCzGKzOZ"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`YbpCzGKzOZ`)">Copia</button><button onclick="elimina(`YbpCzGKzOZ`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-cSoaEizpCr" class="div-container" title="cSoaEizpCr">
+    <div class="esercizio" id="cSoaEizpCr"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`cSoaEizpCr`)">Copia</button><button onclick="elimina(`cSoaEizpCr`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-qhmRGrKwUt" class="div-container" title="qhmRGrKwUt">
+    <div class="esercizio" id="qhmRGrKwUt"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`qhmRGrKwUt`)">Copia</button><button onclick="elimina(`qhmRGrKwUt`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-QlBaQUlMXm" class="div-container" title="QlBaQUlMXm">
+    <div class="esercizio" id="QlBaQUlMXm"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`QlBaQUlMXm`)">Copia</button><button onclick="elimina(`QlBaQUlMXm`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-wYjLMsDvEf" class="div-container" title="wYjLMsDvEf">
+    <div class="esercizio" id="wYjLMsDvEf"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`wYjLMsDvEf`)">Copia</button><button onclick="elimina(`wYjLMsDvEf`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-hhoWcCdLCy" class="div-container" title="hhoWcCdLCy">
+    <div class="esercizio" id="hhoWcCdLCy"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`hhoWcCdLCy`)">Copia</button><button onclick="elimina(`hhoWcCdLCy`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-dcdnEizGus" class="div-container" title="dcdnEizGus">
+    <div class="esercizio" id="dcdnEizGus"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`dcdnEizGus`)">Copia</button><button onclick="elimina(`dcdnEizGus`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-iyVEpnSZKQ" class="div-container" title="iyVEpnSZKQ">
+    <div class="esercizio" id="iyVEpnSZKQ"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`iyVEpnSZKQ`)">Copia</button><button onclick="elimina(`iyVEpnSZKQ`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-bFHhXYAYUr" class="div-container" title="bFHhXYAYUr">
+    <div class="esercizio" id="bFHhXYAYUr"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`bFHhXYAYUr`)">Copia</button><button onclick="elimina(`bFHhXYAYUr`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-nfEKHloRrC" class="div-container" title="nfEKHloRrC">
+    <div class="esercizio" id="nfEKHloRrC"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`nfEKHloRrC`)">Copia</button><button onclick="elimina(`nfEKHloRrC`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-GwUYvGoTZE" class="div-container" title="GwUYvGoTZE">
+    <div class="esercizio" id="GwUYvGoTZE"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`GwUYvGoTZE`)">Copia</button><button onclick="elimina(`GwUYvGoTZE`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-uwoNsuwSmw" class="div-container" title="uwoNsuwSmw">
+    <div class="esercizio" id="uwoNsuwSmw"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`uwoNsuwSmw`)">Copia</button><button onclick="elimina(`uwoNsuwSmw`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-qHlgoUvCLa" class="div-container" title="qHlgoUvCLa">
+    <div class="esercizio" id="qHlgoUvCLa"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`qHlgoUvCLa`)">Copia</button><button onclick="elimina(`qHlgoUvCLa`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-DkBMsTVAfj" class="div-container" title="DkBMsTVAfj">
+    <div class="esercizio" id="DkBMsTVAfj"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`DkBMsTVAfj`)">Copia</button><button onclick="elimina(`DkBMsTVAfj`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-GtpwLmHLhy" class="div-container" title="GtpwLmHLhy">
+    <div class="esercizio" id="GtpwLmHLhy"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`GtpwLmHLhy`)">Copia</button><button onclick="elimina(`GtpwLmHLhy`)">Elimina</button>
+    </div>
+  </div>
+
+  <div id="container-SfeTCIEcIz" class="div-container" title="SfeTCIEcIz">
+    <div class="esercizio" id="SfeTCIEcIz"></div>
+    <br>
+    <div style="width: 50%; margin: auto; display: flex; justify-content: space-evenly; align-items: center;">
+      <button onclick="copia(`SfeTCIEcIz`)">Copia</button><button onclick="elimina(`SfeTCIEcIz`)">Elimina</button>
+    </div>
+  </div>
+
+  <br>
+
+  <button onclick="ripristina()">Ripristina pagina</button>
+
+  <br>
+  <br>
+
+  <script src="../../js/hintAndSlide.js"></script>
+  <script>
+    //leggo il file nel local storage e lo riconverto in array di oggetti
+    let displayJSON = localStorage.getItem(`displayList`);
+    let display = JSON.parse(displayJSON);
+
+    //scasiono l'array display e rendo non visibili i div che hanno attributo display 0 
+    // oppure non contengono alcun testo
+    display.forEach(elm => {
+      if (elm.display === 0 || document.getElementById(elm.id).innerHTML === ``) {
+        document.getElementById(`container-${elm.id}`).style.display = "none";
+      }
+    });
+
+
+
+    function copia(id) {
+      let testo = document.getElementById(id).innerHTML;
+      navigator.clipboard.writeText(testo);
+    }
+
+    function elimina(id) {
+
+      //modifico l'array di oggetti rendendoli non visibili
+      display.forEach(elm => {
+        if (elm.id === id) {
+          elm.display = 0
+        }
+      })
+
+      //nascondo i div
+      document.getElementById(`container-${id}`).style.display = "none";
+
+      //aggiorno il json per poi depositarlo nel local storage
+      displayJSON = JSON.stringify(display);
+      localStorage.clear();
+      localStorage.setItem(`displayList`, displayJSON);
+
+    }
+
+    function ripristina() {
+
+      //modifico l'array di oggetti ripristinando la visibilità di tutti i div 
+      //che contengono testo
+      display.forEach(elm => {
+        elm.display = 1
+        if (document.getElementById(elm.id).innerHTML === ``) {
+          document.getElementById(`container-${elm.id}`).style.display = "none";
+        } else {
+          document.getElementById(`container-${elm.id}`).style.display = "block";
+        }
+      })
+
+      //creo il json per aggiornare lo storage
+      displayJSON = JSON.stringify(display);
+      localStorage.clear();
+      localStorage.setItem(`displayList`, displayJSON);
+    }
+
+    //questo è l'array di oggetti che contengono gli id dei div ed il loro stato di visibilità
+    //usalo per riinizializzare il local storage nel caso di malfunzionamento 
+
+    //[{id: `apEPWrdtPQ`, display: 1},{id: `ByKpNGRjLi`, display: 1},{id: `ljdgFOrBus`, display: 1},{id: `ubWJbERvEF`, display: 1},{id: `FUDgQDNxZx`, display: 1},{id: `ImwpQqkLdl`, display: 1},{id: `pyFcRDIJuU`, display: 1},{id: `vOdHcoJJSe`, display: 1},{id: `zvTiDYAeSi`, display: 1},{id: `VihyKSMhZP`, display: 1},{id: `nwYCLXuSFl`, display: 1},{id: `NCrUlZtSCS`, display: 1},{id: `InkgDTFCGv`, display: 1},{id: `HKQPwancpo`, display: 1},{id: `NJVJtPlpqU`, display: 1},{id: `CfWZSnebgs`, display: 1},{id: `DKVGBGJgev`, display: 1},{id: `qvorhQMXzu`, display: 1},{id: `WjQIuIOGlv`, display: 1},{id: `BAPpzhWfNa`, display: 1},{id: `FiEgPppIEI`, display: 1},{id: `sfyqnoejWL`, display: 1},{id: `lvyLcHTAsg`, display: 1},{id: `MVcygTLwzd`, display: 1},{id: `GJBIARVnlB`, display: 1},{id: `lkNUQnkUkn`, display: 1},{id: `hUsgZrvqlB`, display: 1},{id: `nlJQzfPZGv`, display: 1},{id: `WGgqbsoKlP`, display: 1},{id: `iDXQJmwWaD`, display: 1},{id: `iCNzpPDtRS`, display: 1},{id: `LiCEzSauGq`, display: 1},{id: `bxcKmahjMC`, display: 1},{id: `ooHaoXrFFc`, display: 1},{id: `WIycZDxvpS`, display: 1},{id: `hGfUMHeZhO`, display: 1},{id: `DXqqBHWnYR`, display: 1},{id: `ZzVVPquSzo`, display: 1},{id: `ysTGvkOaJF`, display: 1},{id: `fjNxjyvAmo`, display: 1},{id: `usHSHFTEKS`, display: 1},{id: `ghIEnhJdch`, display: 1},{id: `DXkYYbwzSU`, display: 1},{id: `AuwEqpUTIv`, display: 1},{id: `PyzyXhImjk`, display: 1},{id: `uPkzdMlLDQ`, display: 1},{id: `wHvglySUoz`, display: 1},{id: `vvUrAkXGJB`, display: 1},{id: `WDKNBrEciV`, display: 1},{id: `OaNcbocLHT`, display: 1},{id: `hciJOWdAgS`, display: 1},{id: `pYcNSjoihU`, display: 1},{id: `AhIcSCIMFY`, display: 1},{id: `ReAVJnoYzp`, display: 1},{id: `mWpMkjQkwy`, display: 1},{id: `fovSLTWWob`, display: 1},{id: `bKKnnUwUVZ`, display: 1},{id: `YWtvFByGHf`, display: 1},{id: `QKJEsLxHjo`, display: 1},{id: `wGhzjyAIlb`, display: 1},{id: `FBdpHoRrkg`, display: 1},{id: `VdGgVZnBic`, display: 1},{id: `diyOeCplnc`, display: 1},{id: `pWNNXdUwYK`, display: 1},{id: `kxLMakzCpD`, display: 1},{id: `FsadFDQqjO`, display: 1},{id: `oFwDJnREvP`, display: 1},{id: `YntCKOsYAr`, display: 1},{id: `ezEjuPYTmv`, display: 1},{id: `qVzeKiJCAy`, display: 1},{id: `eCPTuGjXYK`, display: 1}, {id: "ksyQzzvOQn", display: 1},{id: `yUIZOlHoYi`, display: 1},{id: `GWaLPrxFhT`, display: 1},{id: `onkGSHuYkX`, display: 1},{id: `HGdlWWsTlK`, display: 1},{id: `uJXCavKlQP`, display: 1},{id: `yEeShfIaHl`, display: 1},{id: `oYLlviukUq`, display: 1},{id: `JeCtVszOqB`, display: 1},{id: `tiJaVYvraP`, display: 1},{id: `isZlcVkSRR`, display: 1},{id: `cjNIPmGTPF`, display: 1},{id: `NbHLWuaLER`, display: 1},{id: `obemEydYEP`, display: 1},{id: `ZnYUGQQHZd`, display: 1},{id: `YbpCzGKzOZ`, display: 1},{id: `cSoaEizpCr`, display: 1},{id: `qhmRGrKwUt`, display: 1},{id: `QlBaQUlMXm`, display: 1},{id: `wYjLMsDvEf`, display: 1},{id: `hhoWcCdLCy`, display: 1},{id: `dcdnEizGus`, display: 1},{id: `iyVEpnSZKQ`, display: 1},{id: `bFHhXYAYUr`, display: 1},{id: `nfEKHloRrC`, display: 1},{id: `GwUYvGoTZE`, display: 1},{id: `uwoNsuwSmw`, display: 1},{id: `qHlgoUvCLa`, display: 1},{id: `DkBMsTVAfj`, display: 1},{id: `GtpwLmHLhy`, display: 1},{id: `SfeTCIEcIz`, display: 1}]
+  </script>
+
+  <!-- Questo è lo script con cui generare altri id casuali se ne dovessero servire -->
+  <script>
+    //<div id="stampa"></div>
+
+    function generaStringaCasuale(lunghezza) {
+
+      const lettere = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let risultato = '';
+      for (let i = 0; i < lunghezza; i++) {
+        const indiceCasuale = Math.floor(Math.random() * lettere.length);
+        risultato += lettere.charAt(indiceCasuale);
+      }
+      return risultato;
+    }
+
+    // Genera la stringa e la stampa nel div con id "stampa"
+    //document.getElementById('stampa').textContent = generaStringaCasuale(10);
+  </script>
+
+</body>
+
+</html>
