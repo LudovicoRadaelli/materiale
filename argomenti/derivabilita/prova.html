@@ -5,172 +5,219 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js">
   </script>
   <link rel="stylesheet" href="../../css/style.css">
 </head>
-<style>
-  :fullscreen {
-    background-color: white !important;
-    color: black;
-  }
-</style> 
 
 <body>
 
+  <br>
 
-  <div class="slide-container ImwpQqkLdl grayBorder">
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \)
+  <div class="esempi-container">
+    <b class="parTitle">Simmetria verticale</b>
+
+    <br>
+    <br>
+
+
+    Consideriamo una funzione \(f\)
+    \[
+    y = f(x)
+    \]
+    Il grafico della funzione \(g\) definita come
+    \[
+    y = -f(x)
+    \]
+    si ottiene effettuando una simmetria del grafico della funzione \(f\) <b>rispetto all'asse \(\boldsymbol{x}\)</b>.
+
+
+    <br>
+    <br>
+
+
+    <div class="geogebra-container">
+      <div id="geogebranwYCLXuSFl1"></div>
     </div>
-    <div class="slideImwpQqkLdl">
-      \(\color{blue}{}\Big|\color{red}{}ln\sqrt{x}\color{black}{}\color{blue}{}\Big|\color{black}{}' = \)
-      <br>
-      <br>
-      <span class="gray">Deriviamo la funzione <span style="color: blue">modulo</span> considerando il termine in
-        <span style="color: red">rosso</span> come un'unica variabile.</span>
+
+    <br>
+    <div class="gray">
+      \(\triangleright\) Il punto del grafico della funzione \(f\) evidenziato in nero può essere trascinato;
+      in rosso viene disegnato il corrispondente punto simmetrico appartenente al grafico
+      della funzione \(g\).
     </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' =
-      \dfrac{\left|\color{red}{}ln\sqrt{x}\color{black}{}\right|}{\color{red}{}ln\sqrt{x}\color{black}{}}
-      \,\cdot\,\)
-      <br>
-      <br>
-      <span class="gray">Deriviamo la funzione <span style="color: blue">modulo</span> considerando il termine in
-        <span style="color: red">rosso</span> come un'unica variabile.</span>
+
+
+    <br>
+    <br>
+
+    Nel seguente video vengono spiegate le ragioni di questo fenomeno.
+    <br>
+    <br>
+    <br>
+    <iframe style="width: 100%;" src="https://www.youtube.com/embed/s-cRpx0CqHQ?si=HhfLvRce2YGAIYKN"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+
+
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    <b class="parTitle">Simmetria orizzontale</b>
+
+    <br>
+    <br>
+
+
+    Consideriamo una funzione \(f\)
+    \[
+    y = f(x)
+    \]
+    Il grafico della funzione \(g\) definita come
+    \[
+    y = f(-x)
+    \]
+    si ottiene effettuando una simmetria del grafico della funzione \(f\) <b>rispetto all'asse \(\boldsymbol{y}\)</b>.
+
+    <br>
+    <br>
+
+    <style>
+      .geogebra-container {
+        width: 100%;
+        height: 500px;
+        position: relative;
+      }
+
+      .fullscreen {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+        z-index: 9999;
+      }
+    </style>
+
+    <div class="geogebra-container">
+      <div id="geogebranwYCLXuSFl2"></div>
     </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|\color{blue}{}ln\color{red}{}\sqrt{x}\color{black}{}\Big|' =
-      \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\,\)
-      <br>
-      <br>
-      <span class="gray">Deriviamo la funzione <span style="color: blue">logaritmo</span> considerando il termine
-        in <span style="color: red">rosso</span> come un'unica variabile.</span>
+    <button id="fullscreen-btn">Schermo Intero</button>
+
+    <script>
+      var container = document.querySelector(".geogebra-container");
+      var btn = document.getElementById("fullscreen-btn");
+
+      btn.addEventListener("click", async function () {
+        // Fullscreen API
+        if (container.requestFullscreen) {
+          await container.requestFullscreen();
+        } else if (container.webkitRequestFullscreen) {
+          await container.webkitRequestFullscreen();
+        } else if (container.msRequestFullscreen) {
+          await container.msRequestFullscreen();
+        }
+
+        container.classList.add("fullscreen");
+
+        // Lock screen orientation (mobile only)
+        if (screen.orientation && screen.orientation.lock) {
+          try {
+            await screen.orientation.lock("landscape");
+          } catch (err) {
+            console.warn("Impossibile bloccare l'orientamento:", err);
+          }
+        }
+      });
+
+      // Rimuove la classe fullscreen al termine
+      document.addEventListener("fullscreenchange", function () {
+        if (!document.fullscreenElement) {
+          container.classList.remove("fullscreen");
+        }
+      });
+    </script>
+
+
+    <br>
+    <div class="gray">
+      \(\triangleright\) Il punto del grafico della funzione \(f\) evidenziato in nero può essere trascinato;
+      in rosso viene disegnato il corrispondente simmetrico appartenente al grafico
+      della funzione \(g\).
     </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\,
-      \dfrac{1}{\color{red}{}\sqrt{x}} \,\cdot\,\)
-      <br>
-      <br>
-      <span class="gray">Deriviamo la funzione <span style="color: blue">logaritmo</span> considerando il termine
-        in <span style="color: red">rosso</span> come un'unica variabile.</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\color{blue}{}\sqrt{\color{red}{}x}\color{black}{}\Big|' =
-      \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\, \dfrac{1}{\sqrt{x}} \,\cdot\,\)
-      <br>
-      <br>
-      <span class="gray">Deriviamo la funzione <span style="color: blue">radice</span>.</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\, \dfrac{1}{\sqrt{x}}
-      \,\cdot\,\dfrac{1}{2\sqrt{x}}\)
-      <br>
-      <br>
-      <span class="gray">Deriviamo la funzione <span style="color: blue">radice</span>.</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \,\cdot\, \dfrac{1}{\sqrt{x}}
-      \,\cdot\,\dfrac{1}{2\sqrt{x}}\)
-      <br>
-      <br>
-      <span class="gray">Moltiplichiamo il secondo ed il terzo fattore.</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \dfrac{1}{2\sqrt{x}^2}\)
-      <br>
-      <br>
-      <span class="gray">Moltiplichiamo il secondo ed il terzo fattore.</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \dfrac{1}{2\sqrt{x}^2}\)
-      <br>
-      <br>
-      <span class="gray">Semplifichiamo radice e quadrato lasiando traccia del modulo</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{ln\sqrt{x}} \dfrac{1}{2\left|x\right|}\)
-      <br>
-      <br>
-      <span class="gray">Semplifichiamo radice e quadrato lasiando traccia del modulo</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{2\left|x\right| \, ln\sqrt{x}}\)
-      <br>
-      <br>
-      <span class="gray">Moltiplichiamo le due frazioni</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{2\left|x\right| \, ln\sqrt{x}}\)
-      <br>
-      <br>
-      <span class="gray">Per il dominio, stiamo considerando valori di \(x\) maggiori di \(0\), quindi \(|x| =
-        x\)</span>
-    </div>
-    <div class="slideImwpQqkLdl">
-      \(\Big|ln\sqrt{x}\Big|' = \dfrac{\left|ln\sqrt{x}\right|}{2x \, ln\sqrt{x}}\)
-      <br>
-      <br>
-      <span class="gray">Per il dominio, stiamo considerando valori di \(x\) maggiori di \(0\), quindi \(|x| =
-        x\)</span>
-    </div>
+
+
+    <br>
+    <br>
+
+    Nel seguente video vengono spiegate le ragioni di questo fenomeno.
+    <br>
+    <br>
+    <br>
+    <iframe style="width: 100%;" src="https://www.youtube.com/embed/qP0xFLpIxIc?si=_g1x0L7mSw_ZtwF1"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+    <br>
+    <br>
+    <br>
+
+
+
+
   </div>
-  <div style="display: flex; flex-direction:row; justify-content: space-evenly; align-items: center;">
-    <button id="previousSlide-buttonImwpQqkLdl" onclick="previousSlide(`ImwpQqkLdl`)">Inietro</button>
-    <button id="nextSlide-buttonImwpQqkLdl" onclick="nextSlide(`ImwpQqkLdl`)">Avanti</button>
-  </div>
-  <button onclick="toggleFullscreen('ImwpQqkLdl')">Schermo intero</button>
+
+
+  <script>
+    var ggbAppnwYCLXuSFl1 = new GGBApplet({
+        "appName": "classic",
+        "id": "ggnwYCLXuSFl1",
+        "showToolBar": false,
+        "showAlgebraInput": false,
+        "showMenuBar": false,
+        "enableShiftDragZoom": false,
+        "scaleContainerClass": "geogebra-container",
+        "filename": "img/nwYCLXuSFl(1).ggb"
+      },
+      true
+    );
+
+    var ggbAppnwYCLXuSFl2 = new GGBApplet({
+        "appName": "classic",
+        "id": "ggnwYCLXuSFl2",
+        "showToolBar": false,
+        "showAlgebraInput": false,
+        "showMenuBar": false,
+        "enableShiftDragZoom": false,
+        "scaleContainerClass": "geogebra-container",
+        "filename": "img/nwYCLXuSFl(2).ggb"
+      },
+      true
+    );
+
+    window.addEventListener("load", function () {
+      ggbAppnwYCLXuSFl1.inject('geogebranwYCLXuSFl1');
+      ggbAppnwYCLXuSFl2.inject('geogebranwYCLXuSFl2');
+    });
+  </script>
 
   <br>
   <br>
 
-  <script>
-    function toggleFullscreen(elementId) {
-      const elem = document.getElementsByClassName(elementId)[0];
-      console.log(elem)
-      if (!document.fullscreenElement) {
-        if (elem.requestFullscreen) {
-          elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) {
-          /* Safari */
-          elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-          /* IE11 */
-          elem.msRequestFullscreen();
-        }
-      } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        }
-      }
-    }
-  </script>
-  <script>
-    let startX = 0;
 
-    function handleTouchStart(evt) {
-      startX = evt.touches[0].clientX;
-    }
 
-    function handleTouchMove(evt) {
-      if (!startX) return;
-      let deltaX = evt.touches[0].clientX - startX;
-      if (Math.abs(deltaX) > 50) { // soglia minima per considerare swipe
-        if (deltaX > 0) {
-          previousSlide(`ImwpQqkLdl`);
-        } else {
-          nextSlide(`ImwpQqkLdl`);
-        }
-        startX = 0; // reset
-      }
-    }
 
-    const container = document.getElementsByClassName("slide-container")[0];
-    container.addEventListener("touchstart", handleTouchStart, false);
-    container.addEventListener("touchmove", handleTouchMove, false);
-  </script>
 
 
   <script src="../../js/hintAndSlide.js"></script>
