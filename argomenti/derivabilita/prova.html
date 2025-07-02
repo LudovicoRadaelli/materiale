@@ -94,59 +94,98 @@
 
     <style>
       .geogebra-container {
-        width: 100%;        
+        width: 100%;
         position: relative;
+        background: #f0f0f0;
       }
 
-      .fullscreen {
-        position: fixed !important;
+      #fullscreen-icon {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 28px;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border-radius: 6px;
+        padding: 8px;
+        cursor: pointer;
+        z-index: 10;
+        transition: background 0.2s ease;
+      }
+
+      #fullscreen-icon:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      #rotate-warning {
+        display: none;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: white;
-        z-index: 9999;
+        background: white;
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 1.5em;
+        padding: 2em;
       }
     </style>
 
     <div class="geogebra-container">
       <div id="geogebranwYCLXuSFl2"></div>
+      <div id="fullscreen-icon" title="Schermo intero">&#x26F6;</div>
     </div>
-    <button id="fullscreen-btn">Schermo Intero</button>
 
     <script>
       var container = document.querySelector(".geogebra-container");
-      var btn = document.getElementById("fullscreen-btn");
+      const icon = document.getElementById("fullscreen-icon");
+      const warning = document.getElementById("rotate-warning");
 
-      btn.addEventListener("click", async function () {
-        // Fullscreen API
-        if (container.requestFullscreen) {
-          await container.requestFullscreen();
-        } else if (container.webkitRequestFullscreen) {
-          await container.webkitRequestFullscreen();
-        } else if (container.msRequestFullscreen) {
-          await container.msRequestFullscreen();
-        }
-
-        container.classList.add("fullscreen");
-
-        // Lock screen orientation (mobile only)
-        if (screen.orientation && screen.orientation.lock) {
-          try {
-            await screen.orientation.lock("landscape");
-          } catch (err) {
-            console.warn("Impossibile bloccare l'orientamento:", err);
+      icon.addEventListener("click", async () => {
+        try {
+          if (container.requestFullscreen) {
+            await container.requestFullscreen();
+          } else if (container.webkitRequestFullscreen) {
+            await container.webkitRequestFullscreen();
           }
+
+          // Lock orientamento su Android (iOS lo ignora)
+          if (screen.orientation?.lock) {
+            try {
+              await screen.orientation.lock("landscape");
+            } catch (e) {
+              console.log("Orientamento non bloccato:", e);
+            }
+          }
+
+          if (window.innerHeight > window.innerWidth) {
+            warning.style.display = "flex";
+          }
+        } catch (err) {
+          console.error("Errore fullscreen:", err);
         }
       });
 
-      // Rimuove la classe fullscreen al termine
-      document.addEventListener("fullscreenchange", function () {
-        if (!document.fullscreenElement) {
-          container.classList.remove("fullscreen");
+      window.addEventListener("orientationchange", () => {
+        if (window.innerWidth > window.innerHeight) {
+          warning.style.display = "none";
+        } else {
+          warning.style.display = "flex";
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > window.innerHeight) {
+          warning.style.display = "none";
         }
       });
     </script>
+
+
+    <div id="rotate-warning">Ruota il dispositivo in orizzontale</div>
 
 
     <br>
